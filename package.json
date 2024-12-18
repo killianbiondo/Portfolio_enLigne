@@ -1,0 +1,10 @@
+{
+  "name": "Mon_Portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mon-portfolio/pages/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true
+}
