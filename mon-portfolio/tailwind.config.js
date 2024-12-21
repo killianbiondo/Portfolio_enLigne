@@ -6,7 +6,12 @@ module.exports = {
     './public/**/*.{html}',              // Fichiers HTML statiques dans "public"
   ],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        'header': '4.5rem', // Correspond à la hauteur du header
+      },
+    },
   },
   plugins: [],
 };
+

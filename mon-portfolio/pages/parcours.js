@@ -6,7 +6,7 @@ export default function Parcours() {
     return (
         <div>
             <Header />
-            <main className="container mx-auto px-4 py-10">
+            <main className="container mx-auto px-4 py-10" style={{ paddingTop: "4.5rem" }}>
                 <h2 className="text-3xl font-bold mb-8 text-center">Mon Parcours</h2>
 
                 {/* Section des Expériences Professionnelles */}

@@ -1,4 +1,3 @@
-// pages/profil.js
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -6,7 +5,7 @@ export default function Profil() {
     return (
         <div>
             <Header />
-            <main className="container mx-auto px-4 py-10">
+            <main className="container mx-auto px-4 py-10" style={{ paddingTop: "4.5rem" }}>
                 <h2 className="text-3xl font-bold mb-10 text-center">Profil Personnel</h2>
 
                 {/* Section principale : Grid pour afficher les cards */}
@@ -34,7 +33,7 @@ export default function Profil() {
                                 <span>CSS3 - Styling, Flexbox, Grid</span>
                             </li>
                             <li className="flex items-center">
-                                <img src="/images/javascript.png" alt="JavaScript" className="w-8 h-8 mr-3"/>
+                                <img src="/images/javascript.jpg" alt="JavaScript" className="w-8 h-8 mr-3"/>
                                 <span>JavaScript - Dynamique et interactif</span>
                             </li>
                             <li className="flex items-center">
