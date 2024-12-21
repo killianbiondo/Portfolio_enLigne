@@ -21,6 +21,13 @@ export default function Projets() {
                         description="Description de votre projet."
                         image="/images/projet2.jpg"
                     />
+
+                    <ProjectCard
+                        title="Mes certifications"
+                        description="Description de votre projet."
+                        image="/documents/certifications.pdf"
+                    />
+
                 </div>
             </main>
             <Footer />
