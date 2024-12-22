@@ -16,12 +16,12 @@ export default function Projet() {
             description: 'Un jeu sympathique pour apprendre et progresser en JavaScript.',
             technologies: ['HTML', 'Javascript', 'CSS'],
             github: 'https://github.com/killianbiondo/Pong_P5',
-            live: 'document/pong.zip',
+            live: '/document/pong.zip',
         },
         {
             title: 'Mes certifications',
             description: 'Toutes mes certifications et formations durant ma carrière en tant que développeur web.',
-            technologies: ['Symfony', 'Firebase', 'CNIL'],
+            technologies: ['Symfony', 'Firebase', 'CNIL','ANSSI'],
             live: 'https://ecommerce-store-example.com',
         },
     ];

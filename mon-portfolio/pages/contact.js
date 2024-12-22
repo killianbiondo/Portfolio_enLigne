@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useState } from 'react';
-import { FaPaperPlane } from 'react-icons/fa';
+import { FaPaperPlane, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -46,6 +46,38 @@ export default function Contact() {
                     <p className="text-lg text-gray-700">
                         Je suis disponible pour discuter de vos projets ou répondre à vos questions. N'hésitez pas à m'envoyer un message !
                     </p>
+                </div>
+
+                {/* Informations de contact */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    {/* Carte Email */}
+                    <div className="flex items-center bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300">
+                        <FaEnvelope className="text-blue-600 text-3xl mr-4" />
+                        <div>
+                            <h3 className="text-lg font-semibold">Email</h3>
+                            <a href="mailto:biondo.killian@gmail.com" className="text-gray-700 hover:text-blue-500 transition">
+                                biondo.killian@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Carte Téléphone */}
+                    <div className="flex items-center bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300">
+                        <FaPhoneAlt className="text-blue-600 text-3xl mr-4" />
+                        <div>
+                            <h3 className="text-lg font-semibold">Téléphone</h3>
+                            <p className="text-gray-700">+33 6 77 71 86 70</p>
+                        </div>
+                    </div>
+
+                    {/* Carte Localisation */}
+                    <div className="flex items-center bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300">
+                        <FaMapMarkerAlt className="text-blue-600 text-3xl mr-4" />
+                        <div>
+                            <h3 className="text-lg font-semibold">Localisation</h3>
+                            <p className="text-gray-700">Saint-Étienne, France</p>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Formulaire */}

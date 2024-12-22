@@ -33,7 +33,7 @@ export default function Parcours() {
                             <p className="text-gray-600 mb-1">📍 Thoiry, France</p>
                             <p className="text-gray-600 mb-1">📅 Juillet 2022 - Aout 2022</p>
                             <p className="text-gray-700">
-                                J'ai aider mes supérieurs pour fidéliser la clientèle.
+                                J'ai aidé mes supérieurs pour fidéliser la clientèle.
                             </p>
                         </div>
 

@@ -75,13 +75,21 @@ export default function Profil() {
                             <li>
                                 <h4 className="font-semibold">Certification : Le Mooc de l'ANSSI</h4>
                                 <p>Formation sur l'ANSSI et ses missions <a
-                                    href="https://certification-link.com" className="text-blue-600 hover:underline">Voir
+                                    href="https://secnumacademie.gouv.fr/" className="text-blue-600 hover:underline">Voir
                                     la certification</a></p>
                             </li>
                             <li>
                                 <h4 className="font-semibold">Certification : Symfony 7</h4>
                                 <p>Formation sur le framework de PHP, symfony version 7. <a
-                                    href="https://certification-link.com" className="text-blue-600 hover:underline">Voir
+                                    href="https://certification.symfony.com/exams/symfony.html"
+                                    className="text-blue-600 hover:underline">Voir
+                                    la certification</a></p>
+                            </li>
+                            <li>
+                                <h4 className="font-semibold">Certification : Firebase</h4>
+                                <p>Formation sur firebase Google,mettre en place une application. <a
+                                    href="https://firebase.google.com/"
+                                    className="text-blue-600 hover:underline">Voir
                                     la certification</a></p>
                             </li>
 

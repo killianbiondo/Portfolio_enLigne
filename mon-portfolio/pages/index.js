@@ -18,7 +18,7 @@ export default function Home() {
 
                 {/* Citation stylisée */}
                 <blockquote className="italic text-gray-700 text-lg mb-10 drop-shadow-md animate-fadeIn delay-1s">
-                    "L'informatique n'est pas seulement une science, c'est aussi un art de résoudre des problèmes."
+                    "L'informatique n'est pas seulement une science, c'est un art de résoudre des problèmes avec élégance et simplicité."
                 </blockquote>
 
                 {/* Bouton interactif */}
