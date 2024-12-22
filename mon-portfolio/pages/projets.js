@@ -1,71 +1,93 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
-export default function Profil() {
+export default function Projet() {
+    const projects = [
+        {
+            title: 'Mon premier site web',
+            description: 'Un site web sur la photographie pour premier site web mis en ligne.',
+            technologies: ['HTML', 'CSS', 'Javascript'],
+            github: 'https://github.com/killianbiondo/Site_Web',
+            live: 'https://www.biondokillian.fr/',
+        },
+        {
+            title: 'Petit jeu Pong',
+            description: 'Un jeu sympathique pour apprendre et progresser en JavaScript.',
+            technologies: ['HTML', 'Javascript', 'CSS'],
+            github: 'https://github.com/killianbiondo/Pong_P5',
+            live: 'document/pong.zip',
+        },
+        {
+            title: 'Mes certifications',
+            description: 'Toutes mes certifications et formations durant ma carrière en tant que développeur web.',
+            technologies: ['Symfony', 'Firebase', 'CNIL'],
+            live: 'https://ecommerce-store-example.com',
+        },
+    ];
+
     return (
         <div>
             <Header />
-            <main className="container mx-auto px-4 py-10" style={{ paddingTop: "4.5rem" }}>
-                <h2 className="text-3xl font-bold mb-10 text-center">Profil Personnel</h2>
+            <main className="container mx-auto px-4 py-10" style={{ paddingTop: '4.5rem' }}>
+                {/* En-tête */}
+                <div className="text-center mb-10">
+                    <h2 className="text-4xl font-extrabold text-blue-600 mb-4">
+                        Mes Projets
+                    </h2>
+                    <p className="text-lg text-gray-700">
+                        Voici une sélection de mes projets, mettant en avant mes compétences en développement web.
+                    </p>
+                </div>
 
-                {/* Section principale : Grid pour afficher les cards */}
+                {/* Liste des projets */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                    {/* Card : Présentation personnelle */}
-                    <div className="bg-white shadow-lg rounded-lg p-6">
-                        <h3 className="text-2xl font-bold mb-4">Présentation</h3>
-                        <p className="text-gray-700">
-                            Je suis Killian Biondo, passionné par l'informatique mais surtout le développement web, avec une grande envie de découvrir et d'apprendre en continu.
-                            Actuellement étudiant en BTS SIO, j'ai pour objectif de développer ce portfolio.
-                        </p>
-                    </div>
-
-                    {/* Card : Compétences */}
-                    <div className="bg-white shadow-lg rounded-lg p-6">
-                        <h3 className="text-2xl font-bold mb-4">Compétences</h3>
-                        <ul className="space-y-4">
-                            <li className="flex items-center">
-                                <img src="/images/html.png" alt="HTML5" className="w-8 h-8 mr-3" />
-                                <span>HTML5 - Maîtrise des balises sémantiques</span>
-                            </li>
-                            <li className="flex items-center">
-                                <img src="/images/css.png" alt="CSS3" className="w-8 h-8 mr-3" />
-                                <span>CSS3 - Styling, Flexbox, Grid</span>
-                            </li>
-                            <li className="flex items-center">
-                                <img src="/images/javascript.jpg" alt="JavaScript" className="w-8 h-8 mr-3" />
-                                <span>JavaScript - Dynamique et interactif</span>
-                            </li>
-                            <li className="flex items-center">
-                                <img src="/images/react.png" alt="React" className="w-8 h-8 mr-3" />
-                                <span>React - Création de composants réutilisables</span>
-                            </li>
-                            <li className="flex items-center">
-                                <img src="/images/symfony.png" alt="Symfony" className="w-8 h-8 mr-3" />
-                                <span>Symfony - Framework de PHP</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Card : Parcours scolaire */}
-                    <div className="bg-white shadow-lg rounded-lg p-6">
-                        <h3 className="text-2xl font-bold mb-4">Parcours Scolaire</h3>
-                        <ul className="space-y-4">
-                            <li>
-                                <h4 className="font-semibold">2023 - Présent</h4>
-                                <p>Étudiant(e) en BTS SIO option SLAM au Lycée Simone Weil à Saint-Priest-en-Jarez</p>
-                            </li>
-                            <li>
-                                <h4 className="font-semibold">2019 - 2022</h4>
-                                <p>Baccalauréat STI2D au lycée Saint-Exupéry à Valserhone</p>
-                            </li>
-                            <li>
-                                <h4 className="font-semibold">Avant 2019</h4>
-                                <p>Le brevet des collèges au collège Jacques Prevert à Saint-Genis-Pouilly</p>
-                            </li>
-                        </ul>
-                    </div>
-
+                    {projects.map((project, index) => (
+                        <div
+                            key={index}
+                            className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 animate-fadeIn"
+                        >
+                            <h3 className="text-2xl font-semibold text-blue-600 mb-3">
+                                {project.title}
+                            </h3>
+                            <p className="text-gray-700 mb-4">{project.description}</p>
+                            <div className="mb-4">
+                                <h4 className="text-sm font-semibold text-gray-600 mb-2">
+                                    Technologies utilisées :
+                                </h4>
+                                <ul className="flex flex-wrap gap-2">
+                                    {project.technologies.map((tech, techIndex) => (
+                                        <li
+                                            key={techIndex}
+                                            className="bg-gray-100 text-gray-800 text-xs font-medium px-2 py-1 rounded"
+                                        >
+                                            {tech}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="flex justify-between items-center mt-4">
+                                <a
+                                    href={project.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-500 hover:text-blue-700 text-sm font-medium flex items-center"
+                                >
+                                    <FaGithub className="mr-2" />
+                                    Code source
+                                </a>
+                                <a
+                                    href={project.live}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-500 hover:text-blue-700 text-sm font-medium flex items-center"
+                                >
+                                    <FaExternalLinkAlt className="mr-2" />
+                                    Voir le projet
+                                </a>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </main>
             <Footer />
