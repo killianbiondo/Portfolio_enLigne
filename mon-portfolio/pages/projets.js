@@ -13,16 +13,27 @@ export default function Projet() {
         },
         {
             title: 'Petit jeu Pong',
-            description: 'Un jeu sympathique pour apprendre et progresser en JavaScript.',
+            description: 'Un jeu interactif et ludique conçu afin de maîtriser et de perfectionner vos compétences en JavaScript.',
             technologies: ['HTML', 'Javascript', 'CSS'],
             github: 'https://github.com/killianbiondo/Pong_P5',
-            live: '/document/pong.zip',
+            live: '/documents/pong.zip',
+            image: '/images/pong.png',
         },
+        {
+            title: 'Application Full-Stack',
+            description: 'Une page web avec des composants utilisant React pour le front-end et Node.js pour le back-end.',
+            technologies: ['React', 'Node.js', 'Express', 'PHPMyAdmin'],
+            github: 'https://github.com/killianbiondo/APIJson',
+            live: '/documents/ApiJson.zip',
+            image: '/images/api.png',
+            challenges: 'Je suis en train  de développer une application qui récupère une API publique pour afficher les articles.',
+        },
+
         {
             title: 'Mes certifications',
             description: 'Toutes mes certifications et formations durant ma carrière en tant que développeur web.',
-            technologies: ['Symfony', 'Firebase', 'CNIL','ANSSI'],
-            live: 'https://ecommerce-store-example.com',
+            technologies: ['Symfony', 'Firebase', 'CNIL','ANSSI','Vigipirate'],
+            live: '/documents/certifications.pdf',
         },
     ];
 
@@ -33,10 +44,10 @@ export default function Projet() {
                 {/* En-tête */}
                 <div className="text-center mb-10">
                     <h2 className="text-4xl font-extrabold text-blue-600 mb-4">
-                        Mes Projets
+                        Mes réalisations
                     </h2>
                     <p className="text-lg text-gray-700">
-                        Voici une sélection de mes projets, mettant en avant mes compétences en développement web.
+                        Voici une sélection de mes projets réalisés, mettant en avant mes compétences en développement web.
                     </p>
                 </div>
 
