@@ -61,7 +61,7 @@ export default function Profil() {
                             </li>
                             <li>
                                 <h4 className="font-medium">2019 - 2022</h4>
-                                <p>Baccalauréat STI2D au Lycée Saint-Exupéry</p>
+                                <p>Baccalauréat STI2D option SIN au Lycée Saint-Exupéry</p>
                             </li>
                             <li>
                                 <h4 className="font-medium">Avant 2019</h4>
@@ -76,15 +76,27 @@ export default function Profil() {
                         <ul className="space-y-3">
                             <li>
                                 <h4 className="font-medium">Certification : Le Mooc de l'ANSSI</h4>
-                                <p>Formation sur l'ANSSI et ses missions <a href="https://secnumacademie.gouv.fr/" className="text-blue-600 hover:underline">Voir la certification</a></p>
+                                <p>Formation sur l'ANSSI et ses missions <a href="https://secnumacademie.gouv.fr/"
+                                                                            className="text-blue-600 hover:underline">Voir
+                                    la certification</a></p>
                             </li>
                             <li>
                                 <h4 className="font-medium">Certification : Symfony 7</h4>
-                                <p>Formation sur le framework de PHP, Symfony version 7. <a href="https://certification.symfony.com/exams/symfony.html" className="text-blue-600 hover:underline">Voir la certification</a></p>
+                                <p>Formation sur le framework de PHP, Symfony version 7. <a
+                                    href="https://certification.symfony.com/exams/symfony.html"
+                                    className="text-blue-600 hover:underline">Voir la certification</a></p>
                             </li>
                             <li>
                                 <h4 className="font-medium">Certification : Firebase</h4>
-                                <p>Formation sur Firebase Google, mise en place d'une application. <a href="https://firebase.google.com/" className="text-blue-600 hover:underline">Voir la certification</a></p>
+                                <p>Formation sur Firebase Google, mise en place d'une application. <a
+                                    href="https://firebase.google.com/" className="text-blue-600 hover:underline">Voir
+                                    la certification</a></p>
+                            </li>
+                            <li>
+                                <h4 className="font-medium">Certification : Vigipirate</h4>
+                                <p>Formation sur Vigipirate, permet de comprendre ce dispositif. <a
+                                    href="https://vigipirate.gouv.fr/" className="text-blue-600 hover:underline">Voir
+                                    la certification</a></p>
                             </li>
                         </ul>
                     </div>

@@ -95,7 +95,7 @@ export default function Home() {
 
                     {/* Section de statistiques */}
                     <div className="bg-gray-100 py-10 mt-20 relative">
-                        <svg className="absolute top-[-50px] w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                        <svg className="absolute top-0 w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                             <path fill="#ffffff" fillOpacity="1" d="M0,96L1440,160L1440,320L0,320Z"></path>
                         </svg>
                         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -113,7 +113,6 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-
 
                     {/* Call to Action (CTA) */}
                     <div className="bg-gradient-to-r from-blue-600 to-purple-500 text-white text-center py-10 mt-20 rounded-lg shadow-lg">

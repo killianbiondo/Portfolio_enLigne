@@ -20,6 +20,13 @@ export default function Projet() {
             image: '/images/pong.png',
         },
         {
+            title: 'Application Symfony',
+            description: 'Une petite application qui gère la gestion de congés avec une base de données qui lui est relié.',
+            technologies: ['PHP', 'HTML', 'CSS'],
+            github: 'https://github.com/killianbiondo/Gestion_Conges_Status',
+            live: '/documents/gestion_congés_status.zip',
+        },
+        {
             title: 'Application Full-Stack',
             description: 'Une page web avec des composants utilisant React pour le front-end et Node.js pour le back-end.',
             technologies: ['React', 'Node.js', 'Express', 'PHPMyAdmin'],
