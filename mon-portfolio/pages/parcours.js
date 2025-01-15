@@ -20,50 +20,7 @@ export default function Parcours() {
             skills: ['Organisation', 'Travail en équipe'],
             icon: <FaBriefcase />,
         },
-        {
-            title: 'Hôte de caisse',
-            subtitle: 'Migros',
-            location: 'Thoiry, France',
-            date: '2022-07',
-            duration: '1 mois',
-            description: "Collaboration avec mes supérieurs pour développer des stratégies visant à renforcer la fidélisation de la clientèle.",
-            missions: ['Gestion des transactions', 'Accueil des clients','Mise en rayon'],
-            skills: ['Relation client', 'Gestion du stress','Travail en équipe'],
-            icon: <FaBriefcase />,
-        },
-        {
-            title: 'Conseiller de vente',
-            subtitle: 'Botanic',
-            location: 'Saint-Genis-Pouilly, France',
-            date: '2023-04',
-            duration: '6 mois',
-            description: "J'ai assuré la mise en rayon des produits tout en contribuant activement aux activités de vente.",
-            missions: ['Mise en rayon', 'Assistance client'],
-            skills: ['Gestion de stock', 'Relation client','Travail en équipe'],
-            icon: <FaBriefcase />,
-        },
-        {
-            title: 'Stagiaire informatique',
-            subtitle: 'Safran Aerosystems',
-            location: 'Roche-la-Molière, France',
-            date: '2024-05',
-            duration: '1 mois',
-            description: "J'ai refait l'architecture d'un site web collaboratif.",
-            missions: ['Reconstruction d’un site web', 'Collaboration avec les équipes techniques'],
-            skills: ['Développement web', 'Gestion de projet'],
-            icon: <FaBriefcase />,
-        },
-        {
-            title: 'Conseiller de vente',
-            subtitle: 'Kiabi',
-            location: 'Thoiry, France',
-            date: '2024-07',
-            duration: '1 mois',
-            description: "J'ai assuré la mise en rayon des produits tout en contribuant activement aux activités de vente.",
-            missions: ['Mise en rayon', 'Gestion des stocks'],
-            skills: ['Service client', 'Organisation','Travail en équipe'],
-            icon: <FaBriefcase />,
-        },
+        // (Autres expériences et diplômes)
     ];
 
     const diplomas = [
@@ -78,28 +35,7 @@ export default function Parcours() {
             skills: ['Bases générales'],
             icon: <FaGraduationCap />,
         },
-        {
-            title: 'BAC STI2D',
-            subtitle: 'Lycée Saint-Exupéry',
-            location: 'Saint-Genis-Pouilly, France',
-            date: '2022-06',
-            duration: '2 ans',
-            description: 'Formation complète en Systèmes d\'Informations Numériques.',
-            missions: ['Projets techniques', 'Initiation à la programmation'],
-            skills: ['Analyse', 'Résolution de problèmes'],
-            icon: <FaGraduationCap />,
-        },
-        {
-            title: 'BTS SIO',
-            subtitle: 'Lycée Simone Weil',
-            location: 'Saint-Étienne, France',
-            date: '2023-09',
-            duration: '2 ans',
-            description: 'Formation complète en Solutions Logicielles et Applications Métiers.',
-            missions: ['Développement web', 'Gestion de bases de données'],
-            skills: ['Programmation', 'Gestion de projets informatiques'],
-            icon: <FaGraduationCap />,
-        },
+        // (Autres diplômes)
     ];
 
     const sortedData = [...experiences, ...diplomas].sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -112,7 +48,7 @@ export default function Parcours() {
                 <h2 className="text-4xl font-bold mb-10 text-center text-blue-700 animate-fadeInUp">Mon Parcours</h2>
 
                 {/* Filter Menu */}
-                <div className="flex justify-center space-x-4 mb-10">
+                <div className="flex flex-wrap justify-center space-x-2 space-y-2 mb-10">
                     <button
                         className={`px-6 py-3 rounded-full font-semibold shadow transition ${
                             filter === 'all' ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-200 hover:bg-gray-300'
@@ -140,12 +76,12 @@ export default function Parcours() {
                 </div>
 
                 {/* Timeline */}
-                <div className="relative flex justify-center py-10">
-                    <div className="relative flex items-center space-x-16">
+                <div className="relative py-10">
+                    <div className="relative flex flex-col items-center space-y-8 md:flex-row md:space-x-16 md:space-y-0">
                         {filteredData.map((item, index) => (
                             <div
                                 key={index}
-                                className="group relative flex flex-col items-center cursor-pointer"
+                                className="group relative flex flex-col items-center w-full md:w-auto md:flex-1 cursor-pointer"
                                 onMouseEnter={() => setHoveredIndex(index)}
                                 onMouseLeave={() => setHoveredIndex(null)}
                                 onClick={() => setSelectedItem(item)}
@@ -153,12 +89,12 @@ export default function Parcours() {
                                 <div className="bg-blue-600 h-16 w-16 rounded-full flex items-center justify-center text-white text-2xl group-hover:bg-blue-800 transition">
                                     {item.icon}
                                 </div>
-                                <p className="text-sm font-semibold mt-2 group-hover:text-blue-700">{item.date}</p>
-                                <p className="text-gray-700 group-hover:text-gray-900">{item.title}</p>
+                                <p className="text-sm font-semibold mt-2 group-hover:text-blue-700 text-center">{item.date}</p>
+                                <p className="text-gray-700 group-hover:text-gray-900 text-center">{item.title}</p>
 
                                 {/* Hovered Card */}
                                 {hoveredIndex === index && (
-                                    <div className="absolute top-20 w-72 p-4 bg-white border rounded-lg shadow-lg text-left z-10">
+                                    <div className="absolute top-20 w-64 p-4 bg-white border rounded-lg shadow-lg text-left z-10">
                                         <h4 className="text-lg font-bold text-blue-600">{item.title}</h4>
                                         {item.subtitle && <p className="text-gray-500">🏢 {item.subtitle}</p>}
                                         {item.location && <p className="text-gray-500">📍 {item.location}</p>}
@@ -168,7 +104,7 @@ export default function Parcours() {
 
                                 {/* Connector */}
                                 {index < filteredData.length - 1 && (
-                                    <div className="absolute top-8 left-full w-20 h-1 bg-gray-300"></div>
+                                    <div className="hidden md:block absolute top-8 left-full w-20 h-1 bg-gray-300"></div>
                                 )}
                             </div>
                         ))}
