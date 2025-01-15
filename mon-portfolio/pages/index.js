@@ -94,9 +94,13 @@ export default function Home() {
                     </div>
 
                     {/* Section de statistiques */}
-                    <div className="bg-gray-100 py-10 mt-20 relative">
-                        <svg className="absolute top-0 w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                            <path fill="#ffffff" fillOpacity="1" d="M0,96L1440,160L1440,320L0,320Z"></path>
+                    <div className="bg-gray-100 py-10 mt-20 relative overflow-hidden">
+                        <svg
+                            className="absolute bottom-full left-0 w-full transform translate-y-[1px]"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 1440 320"
+                        >
+                            <path fill="#f3f4f6" fillOpacity="1" d="M0,96L1440,160L1440,320L0,320Z"></path>
                         </svg>
                         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                             <div>
