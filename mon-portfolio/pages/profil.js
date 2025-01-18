@@ -70,6 +70,37 @@ export default function Profil() {
                         </ul>
                     </div>
 
+                    {/* Card : Certifications */}
+                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[300px]">
+                        <h3 className="text-xl font-semibold mb-6 text-blue-700">Certifications</h3>
+                        <ul className="space-y-4">
+                            <li>
+                                <h4 className="font-medium text-lg">Certification : Le Mooc de l'ANSSI</h4>
+                                <p>Formation sur l'ANSSI et ses missions <a href="https://secnumacademie.gouv.fr/"
+                                                                            className="text-blue-600 hover:underline">Voir
+                                    la certification</a></p>
+                            </li>
+                            <li>
+                                <h4 className="font-medium text-lg">Certification : Symfony 7</h4>
+                                <p>Formation sur le framework de PHP, Symfony version 7. <a
+                                    href="https://certification.symfony.com/exams/symfony.html"
+                                    className="text-blue-600 hover:underline">Voir la certification</a></p>
+                            </li>
+                            <li>
+                                <h4 className="font-medium text-lg">Certification : Firebase</h4>
+                                <p>Formation sur Firebase Google, mise en place d'une application. <a
+                                    href="https://firebase.google.com/" className="text-blue-600 hover:underline">Voir
+                                    la certification</a></p>
+                            </li>
+                            <li>
+                                <h4 className="font-medium text-lg">Certification : Vigipirate</h4>
+                                <p>Formation sur Vigipirate, permet de comprendre ce dispositif. <a
+                                    href="https://vigipirate.gouv.fr/" className="text-blue-600 hover:underline">Voir
+                                    la certification</a></p>
+                            </li>
+                        </ul>
+                    </div>
+
                     {/* Section combinée : Centres d'intérêt + WorldSkills */}
                     <div className="flex flex-col md:flex-row gap-6">
                         {/* Card : Centres d'intérêt */}
