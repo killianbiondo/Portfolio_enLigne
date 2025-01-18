@@ -12,11 +12,11 @@ export default function Profil() {
 
                 {/* Section principale : Grid pour afficher les cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+                    {/* Toutes les cards ont une hauteur minimale fixe */}
                     {/* Card : Présentation personnelle */}
-                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[300px]">
+                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[400px] h-full flex flex-col">
                         <h3 className="text-xl font-semibold mb-6 text-blue-700">Présentation</h3>
-                        <p className="text-gray-700 leading-relaxed">
+                        <p className="text-gray-700 leading-relaxed flex-grow">
                             Je m'appelle Killian Biondo, passionné par l'informatique et plus particulièrement par le
                             développement web. Animé par une soif constante d'apprentissage et de découverte, je suis
                             actuellement étudiant en BTS SIO. Mon objectif principal est de perfectionner mes compétences
@@ -25,9 +25,9 @@ export default function Profil() {
                     </div>
 
                     {/* Card : Compétences */}
-                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[300px]">
+                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[400px] h-full flex flex-col">
                         <h3 className="text-xl font-semibold mb-6 text-blue-700">Compétences</h3>
-                        <ul className="space-y-4">
+                        <ul className="space-y-4 flex-grow">
                             <li className="flex items-center">
                                 <img src="/images/html.png" alt="HTML5" className="w-8 h-8 mr-4" />
                                 <span>HTML5 - Maîtrise des balises sémantiques</span>
@@ -52,9 +52,9 @@ export default function Profil() {
                     </div>
 
                     {/* Card : Timeline */}
-                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[300px]">
+                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[400px] h-full flex flex-col">
                         <h3 className="text-xl font-semibold mb-6 text-blue-700">Timeline</h3>
-                        <ul className="border-l-4 border-blue-600 pl-4 space-y-5">
+                        <ul className="border-l-4 border-blue-600 pl-4 space-y-5 flex-grow">
                             <li>
                                 <h4 className="font-medium text-lg">2023 - Présent</h4>
                                 <p>Étudiant en BTS SIO option SLAM au Lycée Simone Weil</p>
@@ -71,9 +71,9 @@ export default function Profil() {
                     </div>
 
                     {/* Card : Certifications */}
-                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[300px]">
+                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[400px] h-full flex flex-col">
                         <h3 className="text-xl font-semibold mb-6 text-blue-700">Certifications</h3>
-                        <ul className="space-y-4">
+                        <ul className="space-y-4 flex-grow">
                             <li>
                                 <h4 className="font-medium text-lg">Certification : Le Mooc de l'ANSSI</h4>
                                 <p>Formation sur l'ANSSI et ses missions <a href="https://secnumacademie.gouv.fr/"
@@ -102,27 +102,24 @@ export default function Profil() {
                     </div>
 
                     {/* Section combinée : Centres d'intérêt + WorldSkills */}
-                    <div className="flex flex-col md:flex-row gap-6">
-                        {/* Card : Centres d'intérêt */}
-                        <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition w-full md:w-1/2 min-h-[400px] flex-grow">
-                            <h3 className="text-xl font-semibold mb-6 text-blue-700">Centres d'intérêt</h3>
-                            <ul className="list-disc pl-5 space-y-3">
-                                <li>Lecture : Livres de science-fiction et policiers</li>
-                                <li>Sports : football, Formule 1, basket</li>
-                                <li>Jouer aux jeux vidéos</li>
-                            </ul>
-                        </div>
+                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[400px] h-full flex flex-col">
+                        <h3 className="text-xl font-semibold mb-6 text-blue-700">Centres d'intérêt</h3>
+                        <ul className="list-disc pl-5 space-y-3 flex-grow">
+                            <li>Lecture : Livres de science-fiction et policiers</li>
+                            <li>Sports : football, Formule 1, basket</li>
+                            <li>Jouer aux jeux vidéos</li>
+                        </ul>
+                    </div>
 
-                        {/* Card : WorldSkills */}
-                        <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition w-full md:w-1/2 min-h-[400px] flex-grow">
-                            <h3 className="text-xl font-semibold mb-6 text-blue-700">WorldSkills</h3>
-                            <p className="text-gray-700 leading-relaxed">
-                                J'ai participé au concours régional des <span className="font-semibold">WorldSkills 2024</span>
-                                dans la catégorie <span className="font-semibold">Web Technologies</span>. Je suis fier d'avoir
-                                terminé à la <span className="font-semibold">3ème place</span>, une expérience enrichissante qui
-                                m'a permis de mettre en pratique mes compétences dans un environnement compétitif.
-                            </p>
-                        </div>
+                    {/* Card : WorldSkills */}
+                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[400px] h-full flex flex-col">
+                        <h3 className="text-xl font-semibold mb-6 text-blue-700">WorldSkills</h3>
+                        <p className="text-gray-700 leading-relaxed flex-grow">
+                            J'ai participé au concours régional des <span className="font-semibold">WorldSkills 2024</span>
+                            dans la catégorie <span className="font-semibold">Web Technologies</span>. Je suis fier d'avoir
+                            terminé à la <span className="font-semibold">3ème place</span>, une expérience enrichissante qui
+                            m'a permis de mettre en pratique mes compétences dans un environnement compétitif.
+                        </p>
                     </div>
                 </div>
 
