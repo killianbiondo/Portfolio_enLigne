@@ -101,6 +101,17 @@ export default function Profil() {
                         </ul>
                     </div>
 
+                    {/* Card : WorldSkills */}
+                    <div className="bg-white shadow-md rounded-lg p-6 hover:shadow-xl transition w-full md:w-1/2">
+                        <h3 className="text-xl font-semibold mb-4 text-blue-700">WorldSkills</h3>
+                        <p className="text-gray-700 leading-relaxed">
+                            J'ai participé au concours régional des <span className="font-semibold">WorldSkills 2024</span>
+                            dans la catégorie <span className="font-semibold">Web Technologies</span>. Je suis fier d'avoir
+                            terminé à la <span className="font-semibold">3ème place</span>, une expérience enrichissante qui
+                            m'a permis de mettre en pratique mes compétences dans un environnement compétitif.
+                        </p>
+                    </div>
+
                     {/* Section combinée : Centres d'intérêt + WorldSkills */}
                     <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                         {/* Card : Centres d'intérêt */}
@@ -111,17 +122,6 @@ export default function Profil() {
                                 <li>Sports : football, Formule 1, basket</li>
                                 <li>Jouer aux jeux vidéos</li>
                             </ul>
-                        </div>
-
-                        {/* Card : WorldSkills */}
-                        <div className="bg-white shadow-md rounded-lg p-6 hover:shadow-xl transition w-full md:w-1/2">
-                            <h3 className="text-xl font-semibold mb-4 text-blue-700">WorldSkills</h3>
-                            <p className="text-gray-700 leading-relaxed">
-                                J'ai participé au concours régional des <span className="font-semibold">WorldSkills 2024</span>
-                                dans la catégorie <span className="font-semibold">Web Technologies</span>. Je suis fier d'avoir
-                                terminé à la <span className="font-semibold">3ème place</span>, une expérience enrichissante qui
-                                m'a permis de mettre en pratique mes compétences dans un environnement compétitif.
-                            </p>
                         </div>
                     </div>
                 </div>
