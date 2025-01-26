@@ -116,7 +116,7 @@ export default function Profil() {
                         <h3 className="text-xl font-semibold mb-6 text-blue-700">WorldSkills</h3>
                         <p className="text-gray-700 leading-relaxed flex-grow">
                             J'ai participé au concours régional des <span className="font-semibold">WorldSkills 2024 </span>
-                             dans la catégorie <span className="font-semibold">Web Technologies</span>. Je suis fier d'avoir
+                            dans la catégorie <span className="font-semibold">Web Technologies</span>. Je suis fier d'avoir
                             terminé à la <span className="font-semibold">3ème place</span>, une expérience enrichissante qui
                             m'a permis de mettre en pratique mes compétences dans un environnement compétitif.
                         </p>
