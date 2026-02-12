@@ -34,7 +34,7 @@ export default function Home() {
 
                     {/* Description avec une légère animation */}
                     <p className="text-xl mb-10 drop-shadow-md animate-fadeIn">
-                        Découvrez mon parcours, mes compétences et mes projets dans le domaine du développement web.
+                        Découvrez mon parcours, mes compétences et mes projets dans le domaine du développement web et plus encore.
                     </p>
 
                     {/* Citation stylisée */}
