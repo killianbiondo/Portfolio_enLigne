@@ -8,12 +8,6 @@ body {
     background-color: #f9fafb; /* Couleur de fond par défaut */
 }
 
-/* Exemple : Effet hover personnalisé pour les liens */
-a:hover {
-    text-decoration: underline;
-    color: #1d4ed8; /* Couleur bleue */
-}
-
 @keyframes fadeInUp {
     from {
         opacity: 0;

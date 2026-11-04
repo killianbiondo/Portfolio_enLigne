@@ -1,6 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { FaCode, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
 export default function Projet() {
     const projects = [
@@ -32,7 +32,6 @@ export default function Projet() {
             technologies: ['React', 'Node.js', 'Express', 'PHPMyAdmin'],
             github: 'https://github.com/killianbiondo/APIJson',
             live: '/documents/ApiJson.zip',
-            image: '/images/api.png',
             challenges: 'Je suis en train  de développer une application qui récupère une API publique pour afficher les articles.',
         },
 
@@ -63,46 +62,53 @@ export default function Projet() {
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 animate-fadeIn"
+                            className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                         >
-                            <h3 className="text-2xl font-semibold text-blue-600 mb-3">
-                                {project.title}
-                            </h3>
-                            <p className="text-gray-700 mb-4">{project.description}</p>
-                            <div className="mb-4">
-                                <h4 className="text-sm font-semibold text-gray-600 mb-2">
+                            {project.image ? (
+                                <img src={project.image} alt="" className="h-48 w-full bg-slate-100 object-cover" />
+                            ) : (
+                                <div className="flex h-48 items-center justify-center bg-gradient-to-br from-blue-100 via-indigo-100 to-slate-200">
+                                    <FaCode className="text-5xl text-blue-700/70" aria-hidden="true" />
+                                </div>
+                            )}
+                            <div className="p-6">
+                                <h3 className="mb-3 text-xl font-semibold text-slate-900">{project.title}</h3>
+                                <p className="mb-4 text-slate-600">{project.description}</p>
+                                <h4 className="mb-2 text-sm font-semibold text-slate-600">
                                     Technologies utilisées :
                                 </h4>
-                                <ul className="flex flex-wrap gap-2">
+                                <ul className="mb-5 flex flex-wrap gap-2">
                                     {project.technologies.map((tech, techIndex) => (
                                         <li
                                             key={techIndex}
-                                            className="bg-gray-100 text-gray-800 text-xs font-medium px-2 py-1 rounded"
+                                            className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800"
                                         >
                                             {tech}
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
-                            <div className="flex justify-between items-center mt-4">
-                                <a
-                                    href={project.github}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-blue-500 hover:text-blue-700 text-sm font-medium flex items-center"
-                                >
-                                    <FaGithub className="mr-2" />
-                                    Code source
-                                </a>
+                            <div className="mt-4 flex flex-wrap items-center gap-5">
+                                {project.github && (
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center text-sm font-medium text-blue-700 hover:text-blue-900"
+                                    >
+                                        <FaGithub className="mr-2" aria-hidden="true" />
+                                        Code source
+                                    </a>
+                                )}
                                 <a
                                     href={project.live}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-blue-500 hover:text-blue-700 text-sm font-medium flex items-center"
+                                    className="flex items-center text-sm font-medium text-blue-700 hover:text-blue-900"
                                 >
-                                    <FaExternalLinkAlt className="mr-2" />
+                                    <FaExternalLinkAlt className="mr-2" aria-hidden="true" />
                                     Voir le projet
                                 </a>
+                            </div>
                             </div>
                         </div>
                     ))}

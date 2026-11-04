@@ -1,136 +1,176 @@
+import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Particles from "react-tsparticles";
+import { FaArrowRight, FaCode, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+
+const featuredProjects = [
+    {
+        title: 'Petit jeu Pong',
+        description: 'Un jeu interactif conçu pour pratiquer JavaScript et créer une expérience simple et ludique.',
+        technologies: ['JavaScript', 'HTML', 'CSS'],
+        image: '/images/pong.png',
+        github: 'https://github.com/killianbiondo/Pong_P5',
+        live: '/documents/pong.zip',
+    },
+    {
+        title: 'Mon premier site web',
+        description: 'Un site autour de la photographie, mon premier projet web mis en ligne.',
+        technologies: ['HTML', 'CSS', 'JavaScript'],
+        github: 'https://github.com/killianbiondo/Site_Web',
+        live: 'https://www.biondokillian.fr/',
+    },
+];
 
 export default function Home() {
     return (
-        <div className="relative min-h-screen flex flex-col">
-            {/* Effet Particles */}
-            <Particles
-                className="absolute inset-0 -z-10"
-                options={{
-                    particles: {
-                        number: { value: 50 },
-                        size: { value: 3 },
-                        move: { speed: 1 },
-                        line_linked: { enable: true, opacity: 0.2 },
-                    },
-                }}
-            />
-
-            {/* Fond avec dégradé superposé */}
-            <div
-                className="relative flex-1 bg-cover bg-center"
-                style={{
-                    backgroundImage: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/informatique-bg.jpg')",
-                }}
-            >
-                <Header />
-                <main className="container mx-auto px-4 py-20 text-center text-white" style={{ paddingTop: "4.5rem", paddingBottom: "4rem" }}>
-                    {/* Titre principal avec animation */}
-                    <h1 className="text-5xl font-bold mb-6 drop-shadow-[0_0_10px_rgba(0,0,255,0.5)] animate-slideIn">
-                        Bienvenue dans Mon Univers Informatique
-                    </h1>
-
-                    {/* Description avec une légère animation */}
-                    <p className="text-xl mb-10 drop-shadow-md animate-fadeIn">
-                        Découvrez mon parcours, mes compétences et mes projets dans le domaine du développement web et plus encore.
-                    </p>
-
-                    {/* Citation stylisée */}
-                    <blockquote className="italic text-gray-300 text-lg mb-10 drop-shadow-md animate-fadeIn delay-1s">
-                        "L'informatique n'est pas seulement une science, c'est un art de résoudre des problèmes avec élégance et simplicité."
-                    </blockquote>
-
-                    {/* Bouton interactif */}
-                    <a
-                        href="/profil"
-                        className="relative inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg overflow-hidden group hover:bg-blue-800 transition duration-300">
-                        <span className="absolute inset-0 w-full h-full bg-blue-800 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></span>
-                        <span className="relative">En savoir plus</span>
-                    </a>
-
-                    {/* Section de cartes */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 animate-slideUp">
-                        <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 transform hover:scale-105">
-                            <h3 className="text-2xl font-bold mb-4 text-blue-600">
-                                <i className="fas fa-laptop-code mr-2"></i> Compétences
-                            </h3>
-                            <p className="text-gray-700">
-                                Développement Web, React, Symfony, et de nouvelles choses à apprendre chaque jour pour rester à la pointe de la technologie.
+        <div className="min-h-screen bg-slate-50 text-slate-900">
+            <Header />
+            <main className="pt-20">
+                <section className="relative isolate overflow-hidden bg-slate-950 text-white">
+                    <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/60 via-slate-950 to-slate-950" />
+                    <div className="container mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:py-28 lg:grid-cols-[1.2fr_0.8fr] lg:px-10">
+                        <div>
+                            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-300/25 bg-blue-400/10 px-4 py-2 text-sm font-medium text-blue-200">
+                                <span className="h-2 w-2 rounded-full bg-blue-400" />
+                                Étudiant en Bachelor Information Science
                             </p>
-                            <a
-                                href="/profil"
-                                className="mt-4 inline-block bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-800 transition duration-300">
-                                Voir plus
-                            </a>
+                            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                                Bonjour, moi c&apos;est Killian.
+                                <span className="mt-2 block text-blue-300">Je crée des projets web utiles et soignés.</span>
+                            </h1>
+                            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
+                                Développeur web passionné, j&apos;aime transformer des idées en expériences simples,
+                                accessibles et agréables à utiliser. Voici un aperçu de mon parcours et de mes réalisations.
+                            </p>
+                            <div className="mt-9 flex flex-wrap gap-4">
+                                <Link
+                                    href="#projets"
+                                    className="inline-flex items-center gap-2 rounded-lg bg-blue-500 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-950/30 transition hover:bg-blue-400"
+                                >
+                                    Découvrir mes projets <FaArrowRight aria-hidden="true" />
+                                </Link>
+                                <Link
+                                    href="/profil"
+                                    className="inline-flex items-center rounded-lg border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-white/50 hover:bg-white/10"
+                                >
+                                    En savoir plus sur moi
+                                </Link>
+                            </div>
                         </div>
-                        <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 transform hover:scale-105">
-                            <h3 className="text-2xl font-bold mb-4 text-purple-600">
-                                <i className="fas fa-graduation-cap mr-2"></i> Parcours
-                            </h3>
-                            <p className="text-gray-700">
-                                Étudiant en Bachelor Information Science, passionné par la programmation et les nouvelles technologies.
+
+                        <div className="mx-auto w-full max-w-md rounded-2xl border border-white/10 bg-white/[0.06] p-6 shadow-2xl shadow-black/20 backdrop-blur">
+                            <div className="mb-6 flex items-center gap-2" aria-hidden="true">
+                                <span className="h-3 w-3 rounded-full bg-rose-400" />
+                                <span className="h-3 w-3 rounded-full bg-amber-300" />
+                                <span className="h-3 w-3 rounded-full bg-emerald-400" />
+                                <span className="ml-auto text-xs text-slate-400">qui-suis-je.js</span>
+                            </div>
+                            <FaCode className="mb-5 text-3xl text-blue-300" aria-hidden="true" />
+                            <pre className="overflow-x-auto text-sm leading-7 text-slate-300"><code>{`const killian = {
+  formation: "Bachelor Information Science",
+  passion: "développement web",
+  outils: ["React", "JavaScript", "Symfony"],
+  objectif: "continuer à apprendre"
+};`}</code></pre>
+                            <p className="mt-6 border-t border-white/10 pt-5 text-sm text-slate-400">
+                                Curieux, motivé et toujours prêt à relever un nouveau défi.
                             </p>
-                            <a
-                                href="/parcours"
-                                className="mt-4 inline-block bg-purple-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-purple-800 transition duration-300">
-                                Voir plus
-                            </a>
-                        </div>
-                        <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 transform hover:scale-105">
-                            <h3 className="text-2xl font-bold mb-4 text-pink-600">
-                                <i className="fas fa-project-diagram mr-2"></i> Projets
-                            </h3>
-                            <p className="text-gray-700">
-                                Découvrez mes réalisations et mes travaux personnels.
-                            </p>
-                            <a
-                                href="/projets"
-                                className="mt-4 inline-block bg-pink-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-pink-800 transition duration-300">
-                                Voir plus
-                            </a>
                         </div>
                     </div>
+                </section>
 
-                    {/* Section de statistiques */}
-                    <div className="bg-gray-100 py-10 mt-20 relative overflow-hidden">
-                        <svg
-                            className="absolute bottom-full left-0 w-full transform translate-y-[1px]"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 1440 320"
-                        >
-                            <path fill="#f3f4f6" fillOpacity="1" d="M0,96L1440,160L1440,320L0,320Z"></path>
-                        </svg>
-                        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                            <div>
-                                <h3 className="text-4xl font-bold text-blue-600">3+</h3>
-                                <p className="text-gray-700">Projets Réalisés</p>
-                            </div>
-                            <div>
-                                <h3 className="text-4xl font-bold text-purple-600">2 Ans</h3>
-                                <p className="text-gray-700">Expérience dans le Développement web</p>
-                            </div>
-                            <div>
-                                <h3 className="text-4xl font-bold text-pink-600">100%</h3>
-                                <p className="text-gray-700">Passion pour le Web</p>
-                            </div>
+                <section id="projets" className="container mx-auto max-w-6xl scroll-mt-24 px-6 py-20 lg:px-10">
+                    <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+                        <div>
+                            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">À découvrir</p>
+                            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Quelques projets</h2>
+                            <p className="mt-3 max-w-2xl text-slate-600">
+                                Des projets personnels pour apprendre, expérimenter et donner vie à mes idées.
+                            </p>
                         </div>
+                        <Link href="/projets" className="inline-flex items-center gap-2 font-semibold text-blue-700 hover:text-blue-900">
+                            Tous mes projets <FaArrowRight aria-hidden="true" />
+                        </Link>
                     </div>
 
-                    {/* Call to Action (CTA) */}
-                    <div className="bg-gradient-to-r from-blue-600 to-purple-500 text-white text-center py-10 mt-20 rounded-lg shadow-lg">
-                        <h2 className="text-3xl font-bold mb-4">Prêt à collaborer ou besoins de conseils ?</h2>
-                        <p className="mb-6">Contactez-moi dès maintenant pour discuter de vos projets.</p>
-                        <a
+                    <div className="grid gap-6 md:grid-cols-2">
+                        {featuredProjects.map((project) => (
+                            <article
+                                key={project.title}
+                                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+                            >
+                                {project.image ? (
+                                    <img src={project.image} alt="" className="h-56 w-full bg-slate-100 object-cover" />
+                                ) : (
+                                    <div className="flex h-56 items-center justify-center bg-gradient-to-br from-blue-100 via-indigo-100 to-slate-200">
+                                        <FaCode className="text-5xl text-blue-700/70" aria-hidden="true" />
+                                    </div>
+                                )}
+                                <div className="p-6">
+                                    <h3 className="text-xl font-bold text-slate-900">{project.title}</h3>
+                                    <p className="mt-2 leading-relaxed text-slate-600">{project.description}</p>
+                                    <ul className="mt-4 flex flex-wrap gap-2" aria-label="Technologies utilisées">
+                                        {project.technologies.map((technology) => (
+                                            <li key={technology} className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800">
+                                                {technology}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <div className="mt-6 flex flex-wrap gap-5">
+                                        <a
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-700"
+                                        >
+                                            <FaGithub aria-hidden="true" /> Code source
+                                        </a>
+                                        <a
+                                            href={project.live}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-700"
+                                        >
+                                            <FaExternalLinkAlt aria-hidden="true" /> Voir le projet
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                </section>
+
+                <section className="bg-white">
+                    <div className="container mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-3 lg:px-10">
+                        <div>
+                            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">Ce qui me motive</p>
+                            <h2 className="text-2xl font-bold text-slate-900">Apprendre en construisant</h2>
+                        </div>
+                        <p className="leading-relaxed text-slate-600">
+                            J&apos;aime comprendre comment les choses fonctionnent, puis mettre mes connaissances en pratique à travers des projets concrets.
+                        </p>
+                        <p className="leading-relaxed text-slate-600">
+                            Du développement front-end aux applications web, je cherche à créer des interfaces claires et utiles, tout en continuant à progresser.
+                        </p>
+                    </div>
+                </section>
+
+                <section className="container mx-auto max-w-6xl px-6 py-16 lg:px-10">
+                    <div className="rounded-2xl bg-gradient-to-r from-blue-700 to-indigo-600 px-6 py-12 text-center text-white shadow-xl sm:px-12">
+                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Un projet en tête ? Parlons-en.</h2>
+                        <p className="mx-auto mt-4 max-w-xl text-blue-100">
+                            Une question, une idée ou une opportunité ? Je serai ravi d&apos;échanger avec vous.
+                        </p>
+                        <Link
                             href="/contact"
-                            className="bg-white text-blue-600 font-bold py-3 px-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-                            Contactez-moi
-                        </a>
+                            className="mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-blue-800 transition hover:bg-blue-50"
+                        >
+                            Me contacter <FaArrowRight aria-hidden="true" />
+                        </Link>
                     </div>
-                </main>
-                <Footer />
-            </div>
+                </section>
+            </main>
+            <Footer />
         </div>
     );
 }
