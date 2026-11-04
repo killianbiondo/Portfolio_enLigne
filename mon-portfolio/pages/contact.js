@@ -30,7 +30,7 @@ export default function Contact() {
                 setStatus({ success: false, message: result.message || 'Une erreur est survenue.' });
             }
         } catch (error) {
-            console.error('Error submitting the form:', error);
+            console.error("Erreur lors de l'envoi du formulaire :", error);
             setStatus({ success: false, message: 'Erreur de connexion au serveur.' });
         } finally {
             setIsSubmitting(false);
@@ -40,122 +40,151 @@ export default function Contact() {
     return (
         <div>
             <Header />
-            <main className="container mx-auto px-4 py-10" style={{ paddingTop: '4.5rem' }}>
-                {/* En-tête */}
-                <div className="text-center mb-10">
-                    <FaPaperPlane className="text-blue-500 text-6xl mx-auto mb-4 animate-bounce" />
-                    <h2 className="text-4xl font-extrabold text-blue-600 mb-4">
-                        Contactez-moi
-                    </h2>
-                    <p className="text-lg text-gray-700">
-                        Je suis disponible pour discuter de vos projets ou répondre à vos questions. N'hésitez pas à m'envoyer un message !
+            <main className="container mx-auto max-w-6xl px-6 pb-20 pt-28 lg:px-10">
+                <header className="mb-12 text-center">
+                    <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">
+                        Une question ou une idée ?
                     </p>
-                </div>
+                    <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+                        Parlons-en.
+                    </h1>
+                    <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-600">
+                        Écrivez-moi pour discuter d&apos;un projet, d&apos;une collaboration ou simplement échanger.
+                        Je vous répondrai dès que possible.
+                    </p>
+                </header>
 
-                {/* Informations de contact */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                    {/* Carte Email */}
-                    <div className="flex items-center bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300">
-                        <FaEnvelope className="text-blue-600 text-3xl mr-4" />
-                        <div>
-                            <h3 className="text-lg font-semibold">Email</h3>
-                            <a href="mailto:biondo.killian@gmail.com" className="text-gray-700 hover:text-blue-500 transition">
+                <section aria-label="Mes coordonnées" className="mb-10 grid gap-4 md:grid-cols-3">
+                    <a
+                        href="mailto:biondo.killian@gmail.com"
+                        className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-100"
+                    >
+                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-700">
+                            <FaEnvelope aria-hidden="true" />
+                        </span>
+                        <span className="min-w-0">
+                            <span className="block font-semibold text-slate-900">Email</span>
+                            <span className="mt-1 block break-all text-sm text-slate-600 group-hover:text-blue-700">
                                 biondo.killian@gmail.com
-                            </a>
-                        </div>
-                    </div>
+                            </span>
+                        </span>
+                    </a>
 
-                    {/* Carte Téléphone */}
-                    <div className="flex items-center bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300">
-                        <FaPhoneAlt className="text-blue-600 text-3xl mr-4" />
-                        <div>
-                            <h3 className="text-lg font-semibold">Téléphone</h3>
-                            <p className="text-gray-700">+33 6 77 71 86 70</p>
-                        </div>
-                    </div>
+                    <a
+                        href="tel:+33677718670"
+                        className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-100"
+                    >
+                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-700">
+                            <FaPhoneAlt aria-hidden="true" />
+                        </span>
+                        <span>
+                            <span className="block font-semibold text-slate-900">Téléphone</span>
+                            <span className="mt-1 block text-sm text-slate-600 group-hover:text-blue-700">
+                                +33 6 77 71 86 70
+                            </span>
+                        </span>
+                    </a>
 
-                    {/* Carte Localisation */}
-                    <div className="flex items-center bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300">
-                        <FaMapMarkerAlt className="text-blue-600 text-3xl mr-4" />
-                        <div>
-                            <h3 className="text-lg font-semibold">Localisation</h3>
-                            <p className="text-gray-700">Saint-Genis-Pouilly, France</p>
-                        </div>
+                    <div className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-700">
+                            <FaMapMarkerAlt aria-hidden="true" />
+                        </span>
+                        <span>
+                            <span className="block font-semibold text-slate-900">Localisation</span>
+                            <span className="mt-1 block text-sm text-slate-600">Saint-Genis-Pouilly, France</span>
+                        </span>
                     </div>
-                </div>
+                </section>
 
-                {/* Formulaire */}
                 <form
                     onSubmit={handleSubmit}
-                    className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-8 animate-fadeInUp"
+                    aria-busy={isSubmitting}
+                    className="mx-auto max-w-3xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-9"
                 >
-                    {/* Nom */}
+                    <div className="mb-8">
+                        <h2 className="text-2xl font-bold text-slate-900">Envoyez-moi un message</h2>
+                        <p className="mt-2 text-slate-600">Tous les champs sont obligatoires.</p>
+                    </div>
+
                     <div className="mb-6">
-                        <label htmlFor="name" className="block text-sm font-semibold text-gray-600">
+                        <label htmlFor="name" className="block text-sm font-semibold text-slate-700">
                             Nom
                         </label>
                         <input
                             type="text"
                             id="name"
+                            name="name"
+                            autoComplete="name"
                             value={formData.name}
-                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                            className="w-full mt-2 p-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-300"
-                            placeholder="Votre Nom"
+                            onChange={(e) => {
+                                setFormData({ ...formData, name: e.target.value });
+                                setStatus(null);
+                            }}
+                            className="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                            placeholder="Votre nom"
                             required
                             maxLength={120}
                         />
                     </div>
 
-                    {/* Email */}
                     <div className="mb-6">
-                        <label htmlFor="email" className="block text-sm font-semibold text-gray-600">
-                            Email
+                        <label htmlFor="email" className="block text-sm font-semibold text-slate-700">
+                            Adresse e-mail
                         </label>
                         <input
                             type="email"
                             id="email"
+                            name="email"
+                            autoComplete="email"
                             value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            className="w-full mt-2 p-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-300"
-                            placeholder="Votre Email"
+                            onChange={(e) => {
+                                setFormData({ ...formData, email: e.target.value });
+                                setStatus(null);
+                            }}
+                            className="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                            placeholder="vous@exemple.com"
                             required
                             maxLength={254}
                         />
                     </div>
 
-                    {/* Message */}
-                    <div className="mb-6">
-                        <label htmlFor="message" className="block text-sm font-semibold text-gray-600">
-                            Message
+                    <div className="mb-7">
+                        <label htmlFor="message" className="block text-sm font-semibold text-slate-700">
+                            Votre message
                         </label>
                         <textarea
                             id="message"
+                            name="message"
                             value={formData.message}
-                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                            className="w-full mt-2 p-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-300"
+                            onChange={(e) => {
+                                setFormData({ ...formData, message: e.target.value });
+                                setStatus(null);
+                            }}
+                            className="mt-2 w-full resize-y rounded-lg border border-slate-300 px-4 py-3 text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                             rows="6"
-                            placeholder="Votre Message"
+                            placeholder="Expliquez-moi brièvement ce que vous avez en tête..."
                             required
                             maxLength={5000}
-                        ></textarea>
+                        />
                     </div>
 
-                    {/* Bouton d'envoi */}
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg shadow-md transition duration-300"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3.5 font-semibold text-white shadow-md transition hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 disabled:cursor-not-allowed disabled:opacity-60"
                     >
-                        {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
+                        <FaPaperPlane aria-hidden="true" />
+                        {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
                     </button>
 
-                    {/* Message de statut */}
                     {status && (
                         <p
-                            role="status"
-                            aria-live="polite"
-                            className={`mt-4 text-center font-medium ${
-                                status.success ? 'text-green-500' : 'text-red-500'
+                            role={status.success ? 'status' : 'alert'}
+                            aria-live={status.success ? 'polite' : 'assertive'}
+                            className={`mt-5 rounded-lg px-4 py-3 text-center font-medium ${
+                                status.success
+                                    ? 'border border-emerald-200 bg-emerald-50 text-emerald-800'
+                                    : 'border border-red-200 bg-red-50 text-red-800'
                             }`}
                         >
                             {status.message}

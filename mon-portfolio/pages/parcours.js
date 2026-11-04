@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useState } from 'react';
-import { FaBriefcase, FaGraduationCap } from 'react-icons/fa';
+import { FaBriefcase, FaGraduationCap, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Parcours() {
     const [filter, setFilter] = useState('all');
@@ -11,55 +11,61 @@ export default function Parcours() {
             title: 'Technicien polyvalent',
             subtitle: 'Centre Technique Municipal',
             location: 'Saint-Genis-Pouilly, France',
-            date: '2021-07',
+            date: 'Juillet 2021',
+            sortDate: '2021-07',
             duration: '1 mois',
-            description: "J'ai pu m'occuper de l'entretien de ma ville.",
-            icon: <FaBriefcase />,
+            description: "Participation à l'entretien de la ville.",
+            icon: <FaBriefcase aria-hidden="true" />,
         },
         {
             title: 'Hôte de caisse',
             subtitle: 'Migros',
             location: 'Thoiry, France',
-            date: '2022-07',
+            date: 'Juillet 2022',
+            sortDate: '2022-07',
             duration: '1 mois',
-            description: "Collaboration avec mes supérieurs pour développer des stratégies visant à renforcer la fidélisation de la clientèle.",
-            icon: <FaBriefcase />,
+            description: 'Accueil des clients et contribution à leur fidélisation.',
+            icon: <FaBriefcase aria-hidden="true" />,
         },
         {
             title: 'Conseiller de vente',
             subtitle: 'Botanic',
             location: 'Saint-Genis-Pouilly, France',
-            date: '2023-04',
+            date: 'Avril 2023',
+            sortDate: '2023-04',
             duration: '6 mois',
-            description: "J'ai assuré la mise en rayon des produits tout en contribuant activement aux activités de vente.",
-            icon: <FaBriefcase />,
+            description: 'Mise en rayon des produits et participation aux activités de vente.',
+            icon: <FaBriefcase aria-hidden="true" />,
         },
         {
             title: 'Stagiaire informatique',
             subtitle: 'Safran Aerosystems',
             location: 'Roche-la-Molière, France',
-            date: '2024-05',
+            date: 'Mai 2024',
+            sortDate: '2024-05',
             duration: '1 mois',
-            description: "J'ai refait l'architecture d'un site web collaboratif.",
-            icon: <FaBriefcase />,
+            description: "Refonte de l'architecture d'un site web collaboratif.",
+            icon: <FaBriefcase aria-hidden="true" />,
         },
         {
             title: 'Conseiller de vente',
             subtitle: 'Kiabi',
             location: 'Thoiry, France',
-            date: '2024-07',
+            date: 'Juillet 2024',
+            sortDate: '2024-07',
             duration: '1 mois',
-            description: "J'ai assuré la mise en rayon des produits tout en contribuant activement aux activités de vente.",
-            icon: <FaBriefcase />,
+            description: 'Mise en rayon des produits et participation aux activités de vente.',
+            icon: <FaBriefcase aria-hidden="true" />,
         },
         {
             title: 'Conseiller de vente',
             subtitle: 'Darty',
             location: 'Saint-Genis-Pouilly, France',
-            date: '2025-11',
+            date: 'Novembre 2025',
+            sortDate: '2025-11',
             duration: '9 mois',
-            description: "J'ai assuré la mise en rayon des produits tout en cconseillant les personnes essentiellement sur le rayon multimédia et éléctroménager du magasin.",
-            icon: <FaBriefcase />,
+            description: "Conseil aux clients dans les rayons multimédia et électroménager.",
+            icon: <FaBriefcase aria-hidden="true" />,
         },
     ];
 
@@ -68,95 +74,116 @@ export default function Parcours() {
             title: 'Brevet des collèges',
             subtitle: 'Collège Jacques Prévert',
             location: 'Saint-Genis-Pouilly, France',
-            date: '2019-06',
-            description: 'Formation de base.',
-            icon: <FaGraduationCap />,
+            date: 'Juin 2019',
+            sortDate: '2019-06',
+            description: 'Diplôme national du brevet.',
+            icon: <FaGraduationCap aria-hidden="true" />,
         },
         {
-            title: 'BAC STI2D',
+            title: 'Baccalauréat STI2D',
             subtitle: 'Lycée Saint-Exupéry',
             location: 'Saint-Genis-Pouilly, France',
-            date: '2022-06',
+            date: 'Juin 2022',
+            sortDate: '2022-06',
             duration: '2 ans',
-            description: "Formation complète en Systèmes d'Informations Numériques.",
-            icon: <FaGraduationCap />,
+            description: "Spécialité systèmes d'information et numérique (SIN).",
+            icon: <FaGraduationCap aria-hidden="true" />,
         },
         {
-            title: 'BTS Science Informatique des Organisation',
+            title: 'BTS SIO — option SLAM',
             subtitle: 'Lycée Simone Weil',
-            location: 'Saint-Etienne, France',
-            date: '2023-09',
+            location: 'Saint-Étienne, France',
+            date: '2023 – 2025',
+            sortDate: '2023-09',
             duration: '2 ans',
-            description: 'Formation complète en Solutions Logicielles et Applications Métiers.',
-            icon: <FaGraduationCap />,
+            description: 'Services informatiques aux organisations, spécialité solutions logicielles et applications métiers.',
+            icon: <FaGraduationCap aria-hidden="true" />,
         },
-         {
+        {
             title: 'Bachelor Information Science',
             subtitle: 'HES-SO',
             location: 'Genève, Suisse',
-            date: 'Commencé depuis septembre 2026',
+            date: 'Depuis septembre 2026',
+            sortDate: '2026-09',
             duration: '3 ans',
-            description: 'Formation complète en Information Science.',
-            icon: <FaGraduationCap />,
+            description: 'Formation en Information Science.',
+            icon: <FaGraduationCap aria-hidden="true" />,
         },
-        
     ];
 
-    const data = filter === 'all' ? [...experiences, ...diplomas] : filter === 'experiences' ? experiences : diplomas;
+    const entries = [
+        ...(filter !== 'diplomas' ? experiences : []),
+        ...(filter !== 'experiences' ? diplomas : []),
+    ].sort((a, b) => b.sortDate.localeCompare(a.sortDate));
+
+    const filters = [
+        { id: 'all', label: 'Tout' },
+        { id: 'experiences', label: 'Expériences' },
+        { id: 'diplomas', label: 'Formations' },
+    ];
 
     return (
-        <div>
+        <div className="min-h-screen bg-slate-50 text-slate-900">
             <Header />
-            <main className="container mx-auto px-4 py-10" style={{ paddingTop: '4.5rem' }}>
-                <h2 className="text-4xl font-bold mb-10 text-center text-blue-700">Mon Parcours</h2>
+            <main className="container mx-auto max-w-5xl px-6 pb-20 pt-28 lg:px-10">
+                <header className="mb-12 text-center">
+                    <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">
+                        Études et expériences
+                    </p>
+                    <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+                        Mon parcours
+                    </h1>
+                    <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-600">
+                        De mes premières expériences professionnelles à ma formation actuelle en Information Science.
+                    </p>
+                </header>
 
-                {/* Filter Menu */}
-                <div className="flex justify-center space-x-4 mb-10">
-                    <button
-                        className={`px-6 py-3 rounded-full font-semibold shadow transition ${
-                            filter === 'all' ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-200 hover:bg-gray-300'
-                        }`}
-                        onClick={() => setFilter('all')}
-                    >
-                        Tout
-                    </button>
-                    <button
-                        className={`px-6 py-3 rounded-full font-semibold shadow transition ${
-                            filter === 'experiences' ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-200 hover:bg-gray-300'
-                        }`}
-                        onClick={() => setFilter('experiences')}
-                    >
-                        Expériences
-                    </button>
-                    <button
-                        className={`px-6 py-3 rounded-full font-semibold shadow transition ${
-                            filter === 'diplomas' ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-200 hover:bg-gray-300'
-                        }`}
-                        onClick={() => setFilter('diplomas')}
-                    >
-                        Diplômes
-                    </button>
-                </div>
-
-                {/* Grid Display */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {data.map((item, index) => (
-                        <div
-                            key={index}
-                            className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center border border-gray-200"
+                <div className="mb-12 flex flex-wrap justify-center gap-3" aria-label="Filtrer le parcours">
+                    {filters.map(({ id, label }) => (
+                        <button
+                            key={id}
+                            type="button"
+                            aria-pressed={filter === id}
+                            className={`rounded-full px-5 py-2.5 text-sm font-semibold transition focus:outline-none focus:ring-4 focus:ring-blue-200 ${
+                                filter === id
+                                    ? 'bg-blue-600 text-white shadow-md shadow-blue-900/10'
+                                    : 'border border-slate-200 bg-white text-slate-700 hover:border-blue-200 hover:text-blue-700'
+                            }`}
+                            onClick={() => setFilter(id)}
                         >
-                            <div className="bg-blue-600 h-16 w-16 rounded-full flex items-center justify-center text-white text-2xl mb-4">
-                                {item.icon}
-                            </div>
-                            <h3 className="text-xl font-bold text-blue-600 mb-2">{item.title}</h3>
-                            {item.subtitle && <p className="text-gray-500 mb-1">🏢 {item.subtitle}</p>}
-                            {item.location && <p className="text-gray-500 mb-1">📍 {item.location}</p>}
-                            <p className="text-gray-700">📅 {item.date}</p>
-                            {item.duration && <p className="text-gray-500">⏳ Durée : {item.duration}</p>}
-                            <p className="text-gray-600 mt-2">{item.description}</p>
-                        </div>
+                            {label}
+                        </button>
                     ))}
                 </div>
+
+                <ol className="relative ml-3 border-l-2 border-blue-100 pl-7 sm:ml-8 sm:pl-10">
+                    {entries.map((item) => (
+                        <li key={`${item.title}-${item.sortDate}`} className="relative pb-8 last:pb-0">
+                            <span className="absolute -left-[2.38rem] top-6 flex h-10 w-10 items-center justify-center rounded-full border-4 border-slate-50 bg-blue-600 text-base text-white sm:-left-[3.13rem]">
+                                {item.icon}
+                            </span>
+                            <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg sm:p-7">
+                                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                                    <div>
+                                        <p className="text-sm font-semibold text-blue-700">{item.date}</p>
+                                        <h2 className="mt-1 text-xl font-bold text-slate-900">{item.title}</h2>
+                                        <p className="mt-1 font-medium text-slate-600">{item.subtitle}</p>
+                                    </div>
+                                    {item.duration && (
+                                        <span className="w-fit rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-800">
+                                            {item.duration}
+                                        </span>
+                                    )}
+                                </div>
+                                <p className="mt-4 leading-relaxed text-slate-600">{item.description}</p>
+                                <p className="mt-4 flex items-center gap-2 text-sm text-slate-500">
+                                    <FaMapMarkerAlt className="shrink-0 text-blue-500" aria-hidden="true" />
+                                    {item.location}
+                                </p>
+                            </article>
+                        </li>
+                    ))}
+                </ol>
             </main>
             <Footer />
         </div>
