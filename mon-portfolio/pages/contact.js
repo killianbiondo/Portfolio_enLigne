@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Head from 'next/head';
 import { useState } from 'react';
 import { FaPaperPlane, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
@@ -39,6 +40,13 @@ export default function Contact() {
 
     return (
         <div>
+            <Head>
+                <title>Contact — Killian Biondo</title>
+                <meta
+                    name="description"
+                    content="Contactez Killian Biondo pour discuter d’un projet, d’une collaboration ou d’une opportunité."
+                />
+            </Head>
             <Header />
             <main className="container mx-auto max-w-6xl px-6 pb-20 pt-28 lg:px-10">
                 <header className="mb-12 text-center">

@@ -82,7 +82,7 @@ export default function Parcours() {
         {
             title: 'Baccalauréat STI2D',
             subtitle: 'Lycée Saint-Exupéry',
-            location: 'Saint-Genis-Pouilly, France',
+            location: 'Valserhone, France',
             date: 'Juin 2022',
             sortDate: '2022-06',
             duration: '2 ans',

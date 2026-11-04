@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { FaArrowRight, FaCode, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { FaArrowRight, FaCode, FaDownload, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
 const featuredProjects = [
     {
@@ -11,6 +12,7 @@ const featuredProjects = [
         image: '/images/pong.png',
         github: 'https://github.com/killianbiondo/Pong_P5',
         live: '/documents/pong.zip',
+        liveLabel: 'Télécharger le jeu',
     },
     {
         title: 'Mon premier site web',
@@ -18,12 +20,20 @@ const featuredProjects = [
         technologies: ['HTML', 'CSS', 'JavaScript'],
         github: 'https://github.com/killianbiondo/Site_Web',
         live: 'https://www.biondokillian.fr/',
+        liveLabel: 'Voir le site',
     },
 ];
 
 export default function Home() {
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900">
+            <Head>
+                <title>Killian Biondo — Portfolio développeur web</title>
+                <meta
+                    name="description"
+                    content="Découvrez le parcours, les projets et les compétences de Killian Biondo, étudiant en Bachelor Information Science et passionné par le développement web."
+                />
+            </Head>
             <Header />
             <main className="pt-20">
                 <section className="relative isolate overflow-hidden bg-slate-950 text-white">
@@ -55,6 +65,13 @@ export default function Home() {
                                 >
                                     En savoir plus sur moi
                                 </Link>
+                                <a
+                                    href="/documents/killian.pdf"
+                                    download
+                                    className="inline-flex items-center rounded-lg border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-white/50 hover:bg-white/10"
+                                >
+                                    Télécharger mon CV
+                                </a>
                             </div>
                         </div>
 
@@ -100,7 +117,7 @@ export default function Home() {
                                 className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
                             >
                                 {project.image ? (
-                                    <img src={project.image} alt="" className="h-56 w-full bg-slate-100 object-cover" />
+                                    <img src={project.image} alt={`Aperçu du projet ${project.title}`} className="h-56 w-full bg-slate-100 object-cover" />
                                 ) : (
                                     <div className="flex h-56 items-center justify-center bg-gradient-to-br from-blue-100 via-indigo-100 to-slate-200">
                                         <FaCode className="text-5xl text-blue-700/70" aria-hidden="true" />
@@ -127,11 +144,17 @@ export default function Home() {
                                         </a>
                                         <a
                                             href={project.live}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target={project.live.startsWith('http') ? '_blank' : undefined}
+                                            rel={project.live.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                            download={project.live.startsWith('/documents/')}
                                             className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-700"
                                         >
-                                            <FaExternalLinkAlt aria-hidden="true" /> Voir le projet
+                                            {project.live.startsWith('/documents/') ? (
+                                                <FaDownload aria-hidden="true" />
+                                            ) : (
+                                                <FaExternalLinkAlt aria-hidden="true" />
+                                            )}
+                                            {project.liveLabel}
                                         </a>
                                     </div>
                                 </div>

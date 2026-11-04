@@ -1,22 +1,38 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Head from 'next/head';
 
 export default function Profil() {
     return (
-        <div>
+        <div className="min-h-screen bg-slate-50 text-slate-900">
+            <Head>
+                <title>Profil — Killian Biondo</title>
+                <meta
+                    name="description"
+                    content="Profil, compétences, certifications et centres d’intérêt de Killian Biondo."
+                />
+            </Head>
             <Header />
-            <main className="container mx-auto px-4 py-10" style={{ paddingTop: "4.5rem" }}>
-                <h2 className="text-3xl font-bold mb-10 text-center animate-fadeInUp">
-                    Profil Personnel
-                </h2>
+            <main className="container mx-auto max-w-6xl px-6 pb-20 pt-28 lg:px-10">
+                <header className="mb-12 text-center">
+                    <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">
+                        Qui suis-je ?
+                    </p>
+                    <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+                        Mon profil
+                    </h1>
+                    <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-600">
+                        Mon parcours, mes compétences et les sujets qui me motivent.
+                    </p>
+                </header>
 
                 {/* Section principale : Grid pour afficher les cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {/* Toutes les cards ont une hauteur minimale fixe */}
                     {/* Card : Présentation personnelle */}
-                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[400px] h-full flex flex-col">
-                        <h3 className="text-xl font-semibold mb-6 text-blue-700">Présentation</h3>
-                        <p className="text-gray-700 leading-relaxed flex-grow">
+                    <div className="flex h-full min-h-[360px] flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+                        <h2 className="mb-6 text-xl font-semibold text-blue-700">Présentation</h2>
+                        <p className="flex-grow leading-relaxed text-slate-700">
                             Je m'appelle Killian Biondo, passionné par l'informatique et plus particulièrement par le
                             développement web. Animé par une soif constante d'apprentissage et de découverte, je suis
                             actuellement étudiant en Bachelor Information Science. Mon objectif principal est de perfectionner mes compétences
@@ -25,8 +41,8 @@ export default function Profil() {
                     </div>
 
                     {/* Card : Compétences */}
-                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[400px] h-full flex flex-col">
-                        <h3 className="text-xl font-semibold mb-6 text-blue-700">Compétences</h3>
+                    <div className="flex h-full min-h-[360px] flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+                        <h2 className="mb-6 text-xl font-semibold text-blue-700">Compétences</h2>
                         <ul className="space-y-4 flex-grow">
                             <li className="flex items-center">
                                 <img src="/images/html.png" alt="HTML5" className="w-8 h-8 mr-4" />
@@ -60,8 +76,8 @@ export default function Profil() {
                     </div>
 
                     {/* Card : Timeline */}
-                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[400px] h-full flex flex-col">
-                        <h3 className="text-xl font-semibold mb-6 text-blue-700">Timeline</h3>
+                    <div className="flex h-full min-h-[360px] flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+                        <h2 className="mb-6 text-xl font-semibold text-blue-700">Timeline</h2>
                         <ul className="border-l-4 border-blue-600 pl-4 space-y-5 flex-grow">
                             <li>
                                 <h4 className="font-medium text-lg">2026 - maitenant</h4>
@@ -83,8 +99,8 @@ export default function Profil() {
                     </div>
 
                     {/* Card : Certifications */}
-                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[400px] h-full flex flex-col">
-                        <h3 className="text-xl font-semibold mb-6 text-blue-700">Certifications</h3>
+                    <div className="flex h-full min-h-[360px] flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+                        <h2 className="mb-6 text-xl font-semibold text-blue-700">Certifications</h2>
                         <ul className="space-y-4 flex-grow">
                             <li>
                                 <h4 className="font-medium text-lg">Certification : Le Mooc de l'ANSSI</h4>
@@ -114,8 +130,8 @@ export default function Profil() {
                     </div>
 
                     {/* Section combinée : Centres d'intérêt + WorldSkills */}
-                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[400px] h-full flex flex-col">
-                        <h3 className="text-xl font-semibold mb-6 text-blue-700">Centres d'intérêt</h3>
+                    <div className="flex h-full min-h-[360px] flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+                        <h2 className="mb-6 text-xl font-semibold text-blue-700">Centres d'intérêt</h2>
                         <ul className="list-disc pl-5 space-y-3 flex-grow">
                             <li>Lecture : Livres de science-fiction et policiers</li>
                             <li>Sports : football, Formule 1, basket</li>
@@ -124,9 +140,9 @@ export default function Profil() {
                     </div>
 
                     {/* Card : WorldSkills */}
-                    <div className="bg-white shadow-md rounded-lg p-8 hover:shadow-xl transition min-h-[400px] h-full flex flex-col">
-                        <h3 className="text-xl font-semibold mb-6 text-blue-700">WorldSkills</h3>
-                        <p className="text-gray-700 leading-relaxed flex-grow">
+                    <div className="flex h-full min-h-[360px] flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+                        <h2 className="mb-6 text-xl font-semibold text-blue-700">WorldSkills</h2>
+                        <p className="flex-grow leading-relaxed text-slate-700">
                             J'ai participé au concours régional des <span className="font-semibold">WorldSkills 2024 </span>
                             dans la catégorie <span className="font-semibold">Web Technologies</span>. Je suis fier d'avoir
                             terminé à la <span className="font-semibold">3ème place</span>, une expérience enrichissante qui
@@ -136,8 +152,8 @@ export default function Profil() {
                 </div>
 
                 {/* Section pour le bouton de téléchargement du CV */}
-                <div className="flex justify-center mt-10">
-                    <a href="/documents/killian.pdf" download className="bg-blue-600 text-white py-3 px-8 rounded-lg shadow-lg text-lg hover:bg-blue-800 transition">
+                <div className="mt-10 flex justify-center">
+                    <a href="/documents/killian.pdf" download className="rounded-lg bg-blue-600 px-8 py-3 text-lg font-semibold text-white shadow-md transition hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">
                         Télécharger mon CV
                     </a>
                 </div>
