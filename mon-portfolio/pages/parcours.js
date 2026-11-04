@@ -94,7 +94,7 @@ export default function Parcours() {
             title: 'Bachelor Information Science',
             subtitle: 'HES-SO',
             location: 'Genève, Suisse',
-            date: 'en cours depuis septembre 2026',
+            date: 'Commencé depuis septembre 2026',
             duration: '3 ans',
             description: 'Formation complète en Information Science.',
             icon: <FaGraduationCap />,

@@ -150,7 +150,7 @@ export default function Home() {
                             J&apos;aime comprendre comment les choses fonctionnent, puis mettre mes connaissances en pratique à travers des projets concrets.
                         </p>
                         <p className="leading-relaxed text-slate-600">
-                            Du développement front-end aux applications web, je cherche à créer des interfaces claires et utiles, tout en continuant à progresser.
+                            Du développement front-end aux applications web, je cherche à créer des interfaces claires et utiles, tout en continuant à progresser dans un nouveau domaine qui est l'IS.
                         </p>
                     </div>
                 </section>

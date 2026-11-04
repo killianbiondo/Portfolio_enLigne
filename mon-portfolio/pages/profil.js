@@ -49,8 +49,12 @@ export default function Profil() {
                                 <span>Symfony - Framework de PHP</span>
                             </li>
                             <li className="flex items-center">
-                                <img src="/images/symfony.png" alt="Symfony" className="w-8 h-8 mr-4" />
-                                <span>PHP - Framework Symfony</span>
+                                <img src="/images/php.svg" alt="PHP" className="w-8 h-8 mr-4" />
+                                <span>PHP - Développement côté serveur</span>
+                            </li>
+                            <li className="flex items-center">
+                                <img src="/images/mysql.svg" alt="MySQL" className="w-8 h-8 mr-4" />
+                                <span>SQL / MySQL - Gestion de bases de données</span>
                             </li>
                         </ul>
                     </div>
