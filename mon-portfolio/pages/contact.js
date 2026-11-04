@@ -11,9 +11,11 @@ export default function Contact() {
     });
 
     const [status, setStatus] = useState(null); // Statut de la requête pour les retours utilisateur
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
         try {
             const response = await fetch('/api/contact', {
                 method: 'POST',
@@ -22,7 +24,7 @@ export default function Contact() {
             });
             const result = await response.json();
             if (response.ok) {
-                setStatus({ success: true, message: 'Votre message a été envoyé avec succès !' });
+                setStatus({ success: true, message: result.message });
                 setFormData({ name: '', email: '', message: '' }); // Réinitialisation des champs
             } else {
                 setStatus({ success: false, message: result.message || 'Une erreur est survenue.' });
@@ -30,6 +32,8 @@ export default function Contact() {
         } catch (error) {
             console.error('Error submitting the form:', error);
             setStatus({ success: false, message: 'Erreur de connexion au serveur.' });
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -98,6 +102,7 @@ export default function Contact() {
                             className="w-full mt-2 p-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-300"
                             placeholder="Votre Nom"
                             required
+                            maxLength={120}
                         />
                     </div>
 
@@ -114,6 +119,7 @@ export default function Contact() {
                             className="w-full mt-2 p-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-300"
                             placeholder="Votre Email"
                             required
+                            maxLength={254}
                         />
                     </div>
 
@@ -130,20 +136,24 @@ export default function Contact() {
                             rows="6"
                             placeholder="Votre Message"
                             required
+                            maxLength={5000}
                         ></textarea>
                     </div>
 
                     {/* Bouton d'envoi */}
                     <button
                         type="submit"
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg shadow-md transition duration-300"
+                        disabled={isSubmitting}
+                        className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg shadow-md transition duration-300"
                     >
-                        Envoyer
+                        {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
                     </button>
 
                     {/* Message de statut */}
                     {status && (
                         <p
+                            role="status"
+                            aria-live="polite"
                             className={`mt-4 text-center font-medium ${
                                 status.success ? 'text-green-500' : 'text-red-500'
                             }`}

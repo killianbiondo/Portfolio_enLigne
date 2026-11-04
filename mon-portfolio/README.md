@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Formulaire de contact
+
+Les messages envoyés depuis le formulaire sont transmis par Gmail SMTP à `CONTACT_EMAIL` (par défaut `biondo.killian@gmail.com`). Pour activer l'envoi :
+
+1. Activez la validation en deux étapes sur le compte Google utilisé pour l'envoi, puis créez un [mot de passe d'application](https://support.google.com/accounts/answer/185833).
+2. Créez `mon-portfolio/.env.local` à partir de `.env.example` et renseignez `SMTP_USER` (votre adresse Gmail), `SMTP_APP_PASSWORD` (le mot de passe d'application) et, si nécessaire, `CONTACT_EMAIL`.
+3. Redémarrez le serveur Next.js après avoir modifié `.env.local`.
+
+Ne partagez pas et ne committez jamais le mot de passe d'application.
+
 ## Getting Started
 
 First, run the development server:
