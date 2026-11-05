@@ -56,7 +56,7 @@ export default function Header() {
                         aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
                         aria-expanded={isMobileMenuOpen}
                         aria-controls="mobile-navigation"
-                        className="rounded p-2 text-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-300/40"
+                        className="relative z-50 rounded p-2 text-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-300/40"
                     >
                         {isMobileMenuOpen ? (
                             <FaTimes className="text-2xl" aria-hidden="true" />

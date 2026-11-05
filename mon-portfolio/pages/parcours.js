@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Head from 'next/head';
 import { useState } from 'react';
 import { FaBriefcase, FaGraduationCap, FaMapMarkerAlt } from 'react-icons/fa';
 
@@ -82,7 +83,7 @@ export default function Parcours() {
         {
             title: 'Baccalauréat STI2D',
             subtitle: 'Lycée Saint-Exupéry',
-            location: 'Valserhone, France',
+            location: 'Valserhône, France',
             date: 'Juin 2022',
             sortDate: '2022-06',
             duration: '2 ans',
@@ -124,6 +125,13 @@ export default function Parcours() {
 
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900">
+            <Head>
+                <title>Parcours — Killian Biondo</title>
+                <meta
+                    name="description"
+                    content="Découvrez les formations et expériences professionnelles de Killian Biondo."
+                />
+            </Head>
             <Header />
             <main className="container mx-auto max-w-5xl px-6 pb-20 pt-28 lg:px-10">
                 <header className="mb-12 text-center">

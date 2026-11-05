@@ -33,54 +33,56 @@ export default function Profil() {
                     <div className="flex h-full min-h-[360px] flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
                         <h2 className="mb-6 text-xl font-semibold text-blue-700">Présentation</h2>
                         <p className="flex-grow leading-relaxed text-slate-700">
-                            Je m'appelle Killian Biondo, passionné par l'informatique et plus particulièrement par le
-                            développement web. Animé par une soif constante d'apprentissage et de découverte, je suis
-                            actuellement étudiant en Bachelor Information Science. Mon objectif principal est de perfectionner mes compétences
-                            et de développer ce portfolio pour refléter mon évolution et mes réalisations dans le domaine.
+                            Je m'appelle Killian Biondo. Passionné par l'informatique et le développement web, je suis
+                            actuellement étudiant en Bachelor Information Science. J'aime apprendre en réalisant des
+                            projets concrets et présenter ici les compétences que j'y mobilise.
                         </p>
                     </div>
 
                     {/* Card : Compétences */}
                     <div className="flex h-full min-h-[360px] flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
                         <h2 className="mb-6 text-xl font-semibold text-blue-700">Compétences</h2>
+                        <p className="mb-5 leading-relaxed text-slate-600">
+                            Technologies mises en pratique dans mes projets :
+                        </p>
                         <ul className="space-y-4 flex-grow">
                             <li className="flex items-center">
                                 <img src="/images/html.png" alt="HTML5" className="w-8 h-8 mr-4" />
-                                <span>HTML5 - Maîtrise des balises sémantiques</span>
+                                <span>HTML — structure de pages web</span>
                             </li>
                             <li className="flex items-center">
                                 <img src="/images/css.png" alt="CSS3" className="w-8 h-8 mr-4" />
-                                <span>CSS3 - Styling, Flexbox, Grid</span>
+                                <span>CSS — mise en page et styles</span>
                             </li>
                             <li className="flex items-center">
                                 <img src="/images/javascript.jpg" alt="JavaScript" className="w-8 h-8 mr-4" />
-                                <span>JavaScript - Dynamique et interactif</span>
+                                <span>JavaScript — interactions et logique</span>
                             </li>
                             <li className="flex items-center">
                                 <img src="/images/react.png" alt="React" className="w-8 h-8 mr-4" />
-                                <span>React - Création de composants réutilisables</span>
+                                <span>React — interfaces à base de composants</span>
                             </li>
                             <li className="flex items-center">
                                 <img src="/images/symfony.png" alt="Symfony" className="w-8 h-8 mr-4" />
-                                <span>Symfony - Framework de PHP</span>
+                                <span>Symfony — framework PHP</span>
                             </li>
                             <li className="flex items-center">
                                 <img src="/images/php.svg" alt="PHP" className="w-8 h-8 mr-4" />
-                                <span>PHP - Développement côté serveur</span>
+                                <span>PHP — développement web côté serveur</span>
                             </li>
                             <li className="flex items-center">
                                 <img src="/images/mysql.svg" alt="MySQL" className="w-8 h-8 mr-4" />
-                                <span>SQL / MySQL - Gestion de bases de données</span>
+                                <span>SQL / MySQL — bases de données</span>
                             </li>
                         </ul>
                     </div>
 
                     {/* Card : Timeline */}
                     <div className="flex h-full min-h-[360px] flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
-                        <h2 className="mb-6 text-xl font-semibold text-blue-700">Timeline</h2>
+                        <h2 className="mb-6 text-xl font-semibold text-blue-700">Formation</h2>
                         <ul className="border-l-4 border-blue-600 pl-4 space-y-5 flex-grow">
                             <li>
-                                <h4 className="font-medium text-lg"> Septembre 2026 - ...</h4>
+                                <h4 className="font-medium text-lg">Depuis septembre 2026</h4>
                                 <p>Étudiant en Bachelor Information Science à l'HES-SO</p>
                             </li>
                             <li>
@@ -89,7 +91,7 @@ export default function Profil() {
                             </li>
                             <li>
                                 <h4 className="font-medium text-lg">2019 - 2022</h4>
-                                <p>Baccalauréat STI2D option SIN au Lycée Saint-Exupéry</p>
+                                <p>Baccalauréat STI2D, option SIN, au Lycée Saint-Exupéry</p>
                             </li>
                             <li>
                                 <h4 className="font-medium text-lg">Avant 2019</h4>
