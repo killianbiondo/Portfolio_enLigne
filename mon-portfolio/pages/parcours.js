@@ -44,7 +44,7 @@ export default function Parcours() {
             date: 'Mai 2024',
             sortDate: '2024-05',
             duration: '1 mois',
-            description: "Refonte de l'architecture d'un site web collaboratif.",
+            description: "Refonte de l'architecture d'un site web collaboratif (SharePoint).",
             icon: <FaBriefcase aria-hidden="true" />,
         },
         {

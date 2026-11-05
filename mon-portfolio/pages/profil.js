@@ -80,7 +80,7 @@ export default function Profil() {
                         <h2 className="mb-6 text-xl font-semibold text-blue-700">Timeline</h2>
                         <ul className="border-l-4 border-blue-600 pl-4 space-y-5 flex-grow">
                             <li>
-                                <h4 className="font-medium text-lg">2026 - maitenant</h4>
+                                <h4 className="font-medium text-lg"> Septembre 2026 - ...</h4>
                                 <p>Étudiant en Bachelor Information Science à l'HES-SO</p>
                             </li>
                             <li>

@@ -69,7 +69,7 @@ export default function Projet() {
                         Mes réalisations
                     </h1>
                     <p className="text-lg text-gray-700">
-                        Voici une sélection de mes projets réalisés, mettant en avant mes compétences en développement web.
+                        Voici une sélection de mes projets réalisés, mettant en avant mes compétences en développement web front et backend.
                     </p>
                 </div>
 
