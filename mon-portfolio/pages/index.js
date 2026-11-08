@@ -24,6 +24,19 @@ const featuredProjects = [
     },
 ];
 
+function SectionTransition({ fill }) {
+    return (
+        <svg
+            aria-hidden="true"
+            className={`pointer-events-none absolute inset-x-0 bottom-0 h-14 w-full md:h-20 ${fill}`}
+            viewBox="0 0 1440 80"
+            preserveAspectRatio="none"
+        >
+            <path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1350,40 1440,28 L1440,80 L0,80 Z" />
+        </svg>
+    );
+}
+
 export default function Home() {
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -45,12 +58,11 @@ export default function Home() {
                                 Étudiant en Bachelor Information Science
                             </p>
                             <h1 className="max-w-3xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-                                Bonjour, moi c&apos;est Killian.
+                                Bienvenue.
                                 <span className="mt-2 block text-blue-300">Je crée des projets web utiles et soignés.</span>
                             </h1>
                             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-                                Développeur web passionné, j&apos;aime transformer des idées en expériences simples,
-                                accessibles et agréables à utiliser. Voici un aperçu de mon parcours et de mes réalisations.
+                                <strong>Développeur web passionné par la création d’expériences numériques modernes, intuitives et accessibles</strong>, je m&apos;appelle Killian. J&apos;accorde une attention particulière à la qualité du code, à l&apos;ergonomie et aux détails qui font la différence. Découvrez mon parcours, mes compétences et les projets qui reflètent mon savoir-faire.
                             </p>
                             <div className="mt-9 flex flex-wrap gap-4">
                                 <Link
@@ -94,77 +106,81 @@ export default function Home() {
                             </p>
                         </div>
                     </div>
+                    <SectionTransition fill="fill-slate-50" />
                 </section>
 
-                <section id="projets" className="container mx-auto max-w-6xl scroll-mt-24 px-6 py-20 lg:px-10">
-                    <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-                        <div>
-                            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">À découvrir</p>
-                            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Quelques projets</h2>
-                            <p className="mt-3 max-w-2xl text-slate-600">
-                                Des projets personnels pour apprendre, expérimenter et donner vie à mes idées.
-                            </p>
+                <section id="projets" className="relative scroll-mt-24 bg-slate-50">
+                    <div className="container mx-auto max-w-6xl px-6 pb-32 pt-20 lg:px-10">
+                        <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+                            <div>
+                                <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">À découvrir</p>
+                                <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Quelques projets</h2>
+                                <p className="mt-3 max-w-2xl text-slate-600">
+                                    Des projets personnels pour apprendre, expérimenter et donner vie à mes idées.
+                                </p>
+                            </div>
+                            <Link href="/projets" className="inline-flex items-center gap-2 font-semibold text-blue-700 hover:text-blue-900">
+                                Tous mes projets <FaArrowRight aria-hidden="true" />
+                            </Link>
                         </div>
-                        <Link href="/projets" className="inline-flex items-center gap-2 font-semibold text-blue-700 hover:text-blue-900">
-                            Tous mes projets <FaArrowRight aria-hidden="true" />
-                        </Link>
-                    </div>
 
-                    <div className="grid gap-6 md:grid-cols-2">
-                        {featuredProjects.map((project) => (
-                            <article
-                                key={project.title}
-                                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
-                            >
-                                {project.image ? (
-                                    <img src={project.image} alt={`Aperçu du projet ${project.title}`} className="h-56 w-full bg-slate-100 object-cover" />
-                                ) : (
-                                    <div className="flex h-56 items-center justify-center bg-gradient-to-br from-blue-100 via-indigo-100 to-slate-200">
-                                        <FaCode className="text-5xl text-blue-700/70" aria-hidden="true" />
+                        <div className="grid gap-6 md:grid-cols-2">
+                            {featuredProjects.map((project) => (
+                                <article
+                                    key={project.title}
+                                    className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+                                >
+                                    {project.image ? (
+                                        <img src={project.image} alt={`Aperçu du projet ${project.title}`} className="h-56 w-full bg-slate-100 object-cover" />
+                                    ) : (
+                                        <div className="flex h-56 items-center justify-center bg-gradient-to-br from-blue-100 via-indigo-100 to-slate-200">
+                                            <FaCode className="text-5xl text-blue-700/70" aria-hidden="true" />
+                                        </div>
+                                    )}
+                                    <div className="p-6">
+                                        <h3 className="text-xl font-bold text-slate-900">{project.title}</h3>
+                                        <p className="mt-2 leading-relaxed text-slate-600">{project.description}</p>
+                                        <ul className="mt-4 flex flex-wrap gap-2" aria-label="Technologies utilisées">
+                                            {project.technologies.map((technology) => (
+                                                <li key={technology} className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800">
+                                                    {technology}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <div className="mt-6 flex flex-wrap gap-5">
+                                            <a
+                                                href={project.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-700"
+                                            >
+                                                <FaGithub aria-hidden="true" /> Code source
+                                            </a>
+                                            <a
+                                                href={project.live}
+                                                target={project.live.startsWith('http') ? '_blank' : undefined}
+                                                rel={project.live.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                                download={project.live.startsWith('/documents/')}
+                                                className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-700"
+                                            >
+                                                {project.live.startsWith('/documents/') ? (
+                                                    <FaDownload aria-hidden="true" />
+                                                ) : (
+                                                    <FaExternalLinkAlt aria-hidden="true" />
+                                                )}
+                                                {project.liveLabel}
+                                            </a>
+                                        </div>
                                     </div>
-                                )}
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold text-slate-900">{project.title}</h3>
-                                    <p className="mt-2 leading-relaxed text-slate-600">{project.description}</p>
-                                    <ul className="mt-4 flex flex-wrap gap-2" aria-label="Technologies utilisées">
-                                        {project.technologies.map((technology) => (
-                                            <li key={technology} className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800">
-                                                {technology}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <div className="mt-6 flex flex-wrap gap-5">
-                                        <a
-                                            href={project.github}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-700"
-                                        >
-                                            <FaGithub aria-hidden="true" /> Code source
-                                        </a>
-                                        <a
-                                            href={project.live}
-                                            target={project.live.startsWith('http') ? '_blank' : undefined}
-                                            rel={project.live.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                            download={project.live.startsWith('/documents/')}
-                                            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-700"
-                                        >
-                                            {project.live.startsWith('/documents/') ? (
-                                                <FaDownload aria-hidden="true" />
-                                            ) : (
-                                                <FaExternalLinkAlt aria-hidden="true" />
-                                            )}
-                                            {project.liveLabel}
-                                        </a>
-                                    </div>
-                                </div>
-                            </article>
-                        ))}
+                                </article>
+                            ))}
+                        </div>
                     </div>
+                    <SectionTransition fill="fill-white" />
                 </section>
 
-                <section className="bg-white">
-                    <div className="container mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-3 lg:px-10">
+                <section className="relative bg-white">
+                    <div className="container mx-auto grid max-w-6xl gap-10 px-6 pb-32 pt-16 md:grid-cols-3 lg:px-10">
                         <div>
                             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">Ce qui me motive</p>
                             <h2 className="text-2xl font-bold text-slate-900">Apprendre en construisant</h2>
@@ -176,9 +192,10 @@ export default function Home() {
                             Du développement front-end aux applications web, je cherche à créer des interfaces claires et utiles, tout en continuant à progresser dans un nouveau domaine qui est l'IS.
                         </p>
                     </div>
+                    <SectionTransition fill="fill-slate-50" />
                 </section>
 
-                <section className="container mx-auto max-w-6xl px-6 py-16 lg:px-10">
+                <section className="container mx-auto max-w-6xl bg-slate-50 px-6 py-16 lg:px-10">
                     <div className="rounded-2xl bg-gradient-to-r from-blue-700 to-indigo-600 px-6 py-12 text-center text-white shadow-xl sm:px-12">
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Un projet en tête ? Parlons-en.</h2>
                         <p className="mx-auto mt-4 max-w-xl text-blue-100">
