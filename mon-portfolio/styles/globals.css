@@ -37,3 +37,147 @@ body {
 .animate-slideIn {
     animation: slideIn 0.8s ease-out forwards;
 }
+
+@keyframes homePulse {
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.94);
+    }
+    50% {
+        opacity: 0.75;
+        transform: scale(1.06);
+    }
+}
+
+@keyframes homeSectionEnter {
+    from {
+        opacity: 0.72;
+        transform: translate3d(0, 28px, 0) scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes homeWaveSweep {
+    to {
+        stroke-dashoffset: -1440;
+    }
+}
+
+.home-motion-ready [data-home-section].is-active > .home-section-content {
+    animation: homeSectionEnter 750ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.home-motion-ready [data-home-section].is-active .home-section-wave {
+    stroke-dasharray: 160 1280;
+    animation: homeWaveSweep 3.2s linear infinite;
+}
+
+.home-motion-ready [data-home-reveal] {
+    opacity: 0;
+    translate: 0 24px;
+    transition:
+        opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        translate 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.home-motion-ready [data-home-reveal].is-visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.home-motion-ready .home-reveal-delay-1 {
+    transition-delay: 120ms;
+}
+
+.home-motion-ready .home-reveal-delay-2 {
+    transition-delay: 240ms;
+}
+
+.home-hero-glow {
+    position: absolute;
+    z-index: -1;
+    width: 22rem;
+    height: 22rem;
+    border-radius: 9999px;
+    background: rgb(37 99 235 / 28%);
+    filter: blur(80px);
+    pointer-events: none;
+    animation: homePulse 9s ease-in-out infinite;
+}
+
+.home-hero-glow-one {
+    top: -10rem;
+    right: -5rem;
+}
+
+.home-hero-glow-two {
+    bottom: 3rem;
+    left: -16rem;
+    width: 28rem;
+    height: 28rem;
+    background: rgb(79 70 229 / 20%);
+    animation-delay: -4s;
+}
+
+.home-code-card {
+    transition:
+        border-color 300ms ease,
+        background-color 300ms ease,
+        transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.home-code-card:hover {
+    transform: translateY(-6px);
+    border-color: rgb(147 197 253 / 35%);
+    background-color: rgb(255 255 255 / 9%);
+}
+
+.home-project-card {
+    transition:
+        transform 350ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        box-shadow 350ms ease,
+        border-color 350ms ease;
+}
+
+.home-project-card:hover {
+    border-color: rgb(147 197 253 / 75%);
+}
+
+.home-project-image {
+    transition: transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.home-project-card:hover .home-project-image {
+    transform: scale(1.04);
+}
+
+.home-contact-card {
+    transition:
+        transform 350ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        box-shadow 350ms ease;
+}
+
+.home-contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -18px rgb(30 64 175 / 38%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .home-motion-ready [data-home-reveal] {
+        opacity: 1;
+        translate: none;
+    }
+}

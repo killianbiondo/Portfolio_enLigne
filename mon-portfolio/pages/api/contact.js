@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer';
 
 const recipient = process.env.CONTACT_EMAIL || 'biondo.killian@gmail.com';
+const allowedSubjects = ['Projet', 'Collaboration', 'Opportunité', 'Autre'];
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -11,6 +12,7 @@ export default async function handler(req, res) {
     const body = req.body;
     const name = typeof body?.name === 'string' ? body.name.trim() : '';
     const email = typeof body?.email === 'string' ? body.email.trim() : '';
+    const subject = typeof body?.subject === 'string' ? body.subject.trim() : 'Autre';
     const message = typeof body?.message === 'string' ? body.message.trim() : '';
 
     if (!name || !email || !message) {
@@ -20,6 +22,7 @@ export default async function handler(req, res) {
     if (
         name.length > 120 ||
         email.length > 254 ||
+        !allowedSubjects.includes(subject) ||
         message.length > 5000 ||
         !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     ) {
@@ -47,8 +50,8 @@ export default async function handler(req, res) {
             from: `Portfolio <${SMTP_USER}>`,
             to: recipient,
             replyTo: { name, address: email },
-            subject: 'Nouveau message depuis votre portfolio',
-            text: `Nom : ${name}\nEmail : ${email}\n\nMessage :\n${message}`,
+            subject: `Portfolio — ${subject}`,
+            text: `Sujet : ${subject}\nNom : ${name}\nEmail : ${email}\n\nMessage :\n${message}`,
         });
 
         return res.status(200).json({ message: 'Votre message a été envoyé avec succès !' });

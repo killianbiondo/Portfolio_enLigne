@@ -51,11 +51,11 @@ export default function Profil() {
                     {/* Card : Présentation personnelle */}
                     <div className="flex h-full min-h-[360px] flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
                         <h2 className="mb-6 text-xl font-semibold text-blue-700">Présentation</h2>
-                        <p className="flex-grow leading-relaxed text-slate-700">
-                            Je m'appelle Killian Biondo. Passionné par l'informatique et le développement web, je suis
-                            actuellement étudiant en Bachelor Information Science. J'aime apprendre en réalisant des
-                            projets concrets et présenter ici les compétences que j'y mobilise.
-                        </p>
+                        <ul className="flex-grow list-disc space-y-3 pl-5 leading-relaxed marker:text-blue-600 text-slate-700">
+                            <li>Killian Biondo, passionné par l’informatique et le développement web.</li>
+                            <li>Étudiant en Bachelor Information Science.</li>
+                            <li>J’apprends en réalisant des projets concrets et en mettant mes compétences en pratique.</li>
+                        </ul>
                     </div>
 
                     {/* Card : Compétences */}
