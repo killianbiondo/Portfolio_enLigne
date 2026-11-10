@@ -1,77 +1,116 @@
 # Portfolio de Killian Biondo
 
-Site portfolio réalisé avec Next.js, React et Tailwind CSS. Il présente mon profil, mon parcours et mes projets, et permet de me contacter via un formulaire.
+Site portfolio personnel réalisé avec Next.js, React et Tailwind CSS. Il présente mon profil, mon parcours, mes projets et un formulaire de contact.
 
 ## Prérequis
 
-- Node.js 18.18 ou une version ultérieure
-- npm
-- Un navigateur web
+- **Git**, pour récupérer le code source ;
+- **Node.js 20 LTS** recommandé (Node.js 18.18 ou ultérieur est nécessaire) ;
+- **npm**, installé avec Node.js ;
+- un navigateur web récent.
 
-## Installation
-
-Depuis la racine du dépôt, placez-vous dans le dossier de l’application et installez ses dépendances :
+Pour vérifier que Node.js et npm sont installés, ouvrez un terminal et exécutez :
 
 ```bash
-cd mon-portfolio
+node --version
+npm --version
+```
+
+## 1. Récupérer le projet
+
+Clonez le dépôt, puis entrez dans le dossier de l’application :
+
+```bash
+git clone https://github.com/killianbiondo/Portfolio_enLigne.git
+cd Portfolio_enLigne/mon-portfolio
+```
+
+Si le dépôt est déjà présent sur votre ordinateur, ouvrez simplement un terminal dans son dossier `mon-portfolio`. Les commandes suivantes doivent toutes être exécutées depuis ce dossier, là où se trouve `package.json`.
+
+## 2. Installer les dépendances
+
+```bash
 npm ci
 ```
 
-## Lancer le site en développement
+Cette commande installe les dépendances à partir du fichier `package-lock.json`. Elle nécessite une connexion Internet lors de la première installation.
+
+## 3. Lancer le site en développement
 
 ```bash
 npm run dev
 ```
 
-Ouvrez ensuite [http://localhost:3000](http://localhost:3000) dans votre navigateur. Les modifications apportées aux fichiers sont prises en compte automatiquement.
+Ouvrez ensuite [http://localhost:3000](http://localhost:3000) dans votre navigateur. Laissez le terminal ouvert pendant que vous utilisez le site : il affiche les erreurs éventuelles. Pour arrêter le serveur, utilisez `Ctrl+C` dans ce terminal.
 
-## Formulaire de contact
+## Formulaire de contact (facultatif)
 
-Le formulaire envoie ses messages par Gmail SMTP. Pour activer l’envoi :
+Le site s’affiche sans configuration supplémentaire. Pour que le formulaire puisse envoyer des e-mails, configurez un compte Gmail :
 
-1. Activez la validation en deux étapes sur le compte Google qui enverra les messages et créez un [mot de passe d’application Google](https://support.google.com/accounts/answer/185833).
-2. Depuis le dossier `mon-portfolio`, copiez le fichier d’exemple :
+1. Activez la validation en deux étapes sur le compte Google qui enverra les messages.
+2. Créez un [mot de passe d’application Google](https://support.google.com/accounts/answer/185833). Il s’agit d’un mot de passe dédié à l’application, et non du mot de passe habituel du compte.
+3. Depuis `mon-portfolio`, créez le fichier local de configuration :
 
    ```bash
    cp .env.example .env.local
    ```
 
-3. Renseignez les variables dans `mon-portfolio/.env.local` :
-   - `SMTP_USER` : adresse Gmail utilisée pour l’envoi ;
+   Sous Windows, vous pouvez aussi créer manuellement un fichier nommé `.env.local` dans `mon-portfolio`.
+4. Remplacez les valeurs d’exemple dans `.env.local` :
+
+   ```dotenv
+   SMTP_USER=adresse@gmail.com
+   SMTP_APP_PASSWORD=mot_de_passe_application
+   CONTACT_EMAIL=adresse_de_reception@example.com
+   ```
+
+   - `SMTP_USER` : adresse Gmail utilisée pour envoyer les messages ;
    - `SMTP_APP_PASSWORD` : mot de passe d’application Google ;
-   - `CONTACT_EMAIL` : adresse qui reçoit les messages (facultative ; une adresse de réception par défaut est définie par l’application).
-4. Redémarrez le serveur de développement après avoir modifié `.env.local`.
+   - `CONTACT_EMAIL` : adresse qui reçoit les messages. Si cette variable est omise, l’application utilise l’adresse définie par défaut dans le code.
+5. Redémarrez le serveur (`Ctrl+C`, puis `npm run dev`) pour prendre en compte la configuration.
 
-Ne partagez pas et ne committez jamais le mot de passe d’application. Le fichier `.env.local` est ignoré par Git.
+Sans les deux variables `SMTP_USER` et `SMTP_APP_PASSWORD`, le site reste consultable, mais l’envoi du formulaire est désactivé. Ne partagez jamais ces identifiants et ne les ajoutez jamais à Git : `.env.local` est ignoré par le dépôt.
 
-## Vérification et production
+## Vérifier et lancer la version de production
 
-Depuis `mon-portfolio`, vérifiez la compilation de production avec :
+Pour vérifier que l’application peut être compilée :
 
 ```bash
 npm run build
 ```
 
-Puis lancez le site en mode production :
+Après une compilation réussie, lancez le site en mode production :
 
 ```bash
 npm start
 ```
 
+Le site est alors accessible sur [http://localhost:3000](http://localhost:3000). Les variables de `.env.local`, si elles sont configurées, sont également utilisées par le formulaire.
+
+## Base de données
+
+Il n’est pas nécessaire d’installer ou de lancer PostgreSQL pour démarrer le site ou utiliser son formulaire de contact. Celui-ci envoie les messages par Gmail SMTP ; les fichiers Prisma et Docker présents dans le dépôt ne sont pas nécessaires au fonctionnement actuel du portfolio.
+
 ## Structure du projet
 
 ```text
-mon-portfolio/
-├── components/       # En-tête, pied de page et composants réutilisables
-├── pages/            # Pages et routes Next.js
-│   ├── api/          # API du formulaire de contact
-│   ├── index.js      # Accueil
-│   ├── profil.js     # Profil et compétences
-│   ├── parcours.js   # Parcours
-│   └── projets.js    # Projets
-├── prisma/           # Schéma et migrations de la base de données
-├── public/           # Images, documents et autres ressources statiques
-├── styles/           # Styles globaux
-├── .env.example      # Exemple de configuration des variables d’environnement
-└── package.json      # Dépendances et commandes du projet
+Portfolio_enLigne/
+├── docker-compose.yml
+├── README.md
+└── mon-portfolio/
+    ├── components/       # En-tête, pied de page et composants réutilisables
+    ├── pages/            # Pages du site et route API du formulaire
+    │   ├── api/
+    │   │   └── contact.js # Envoi du formulaire par e-mail
+    │   ├── index.js      # Accueil
+    │   ├── profil.js     # Profil et compétences
+    │   ├── parcours.js   # Parcours
+    │   ├── projets.js    # Projets
+    │   └── contact.js    # Contact
+    ├── prisma/           # Schéma et migration conservés dans le dépôt
+    ├── public/           # Images, documents et autres ressources statiques
+    ├── styles/           # Styles globaux
+    ├── .env.example      # Exemple de configuration du formulaire
+    ├── package.json      # Dépendances et commandes npm
+    └── package-lock.json # Versions exactes des dépendances
 ```
