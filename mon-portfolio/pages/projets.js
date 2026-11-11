@@ -49,6 +49,24 @@ export default function Projet() {
             highlight: 'Affiche notamment la capitale et les langues d’un pays sélectionné.',
         },
     ];
+    const internshipProjects = [
+        {
+            title: 'Les chemins d’Abeline',
+            description: 'Création du site web Les chemins d’Abeline.',
+            technologies: ['WordPress'],
+            image: '/images/les-chemins-abeline.png',
+            imageAlt: 'Bannière du site Les chemins d’Abeline avec les couvertures de la collection',
+            live: 'https://lescheminsdabeline.com/',
+        },
+        {
+            title: 'Gaelis Éditions',
+            description: 'Refonte du site web de Gaelis Éditions.',
+            technologies: ['WordPress'],
+            image: '/images/gaelis-editions.png',
+            imageAlt: 'Visuel d’accueil du site Gaelis Éditions avec son logo sur un fond à motifs',
+            live: 'https://gaelis-editions.com/',
+        },
+    ];
 
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -56,22 +74,74 @@ export default function Projet() {
                 <title>Projets — Killian Biondo</title>
                 <meta
                     name="description"
-                    content="Découvrez les projets web de Killian Biondo, leurs technologies et les liens vers leur code source ou leur téléchargement."
+                    content="Découvrez les projets personnels de Killian Biondo et les sites WordPress créés ou refondus pendant son stage chez Gaelis Éditions."
                 />
             </Head>
             <Header />
             <main className="container mx-auto max-w-6xl px-6 pb-20 pt-28 lg:px-10">
                 <header className="mb-12 text-center">
                     <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">
-                        Projets personnels
+                        Projets personnels et professionnels
                     </p>
                     <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
                         Mes réalisations
                     </h1>
                     <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
-                        Des projets personnels réalisés pour pratiquer le développement web, du site statique aux applications qui consomment des API.
+                        Découvrez mes projets personnels.
                     </p>
                 </header>
+
+                <section aria-labelledby="stage-projects-title" className="mb-16">
+                    <header className="mb-6">
+                        <h2 id="stage-projects-title" className="text-2xl font-bold text-slate-900">
+                            Réalisations en stage chez Gaelis Éditions
+                        </h2>
+                        <p className="mt-2 leading-relaxed text-slate-600">
+                            J’ai créé le site Les chemins d’Abeline et réalisé la refonte du site de Gaelis Éditions.
+                            Ces deux sites sont gérés avec WordPress.
+                        </p>
+                    </header>
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                        {internshipProjects.map((project) => (
+                            <article
+                                key={project.title}
+                                className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                            >
+                                <img
+                                    src={project.image}
+                                    alt={project.imageAlt}
+                                    className="h-48 w-full bg-slate-100 object-cover"
+                                />
+                                <div className="flex flex-1 flex-col p-6">
+                                    <h3 className="mb-3 text-xl font-semibold text-slate-900">{project.title}</h3>
+                                    <p className="mb-4 leading-relaxed text-slate-600">{project.description}</p>
+                                    <h4 className="mb-2 text-sm font-semibold text-slate-600">
+                                        Technologies utilisées :
+                                    </h4>
+                                    <ul className="mb-5 flex flex-wrap gap-2">
+                                        {project.technologies.map((tech) => (
+                                            <li
+                                                key={tech}
+                                                className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800"
+                                            >
+                                                {tech}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <a
+                                        href={project.live}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-auto flex items-center pt-5 text-sm font-medium text-blue-700 hover:text-blue-900"
+                                    >
+                                        <FaExternalLinkAlt className="mr-2" aria-hidden="true" />
+                                        Voir le site
+                                    </a>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                </section>
 
                 <section aria-label="Projets" className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     {projects.map((project) => (
