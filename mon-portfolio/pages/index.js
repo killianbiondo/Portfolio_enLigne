@@ -131,13 +131,6 @@ export default function Home() {
                                 >
                                     En savoir plus sur moi
                                 </Link>
-                                <a
-                                    href="/documents/killian.pdf"
-                                    download
-                                    className="inline-flex items-center rounded-lg border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-white/50 hover:bg-white/10"
-                                >
-                                    Télécharger mon CV
-                                </a>
                             </div>
                         </div>
 
